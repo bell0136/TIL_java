@@ -6,7 +6,7 @@ class ex6_2pro2
 		for(int i = 1; i <= 100; i++)
 		{
 			result = Prime(i);
-			if(result = true)
+			if(result == true)
 			{
 				System.out.println(i);
 			}
@@ -15,18 +15,14 @@ class ex6_2pro2
 	}
 	public static boolean Prime(int num1)
 	{		
-		int i = 0;
-		while(i < num1)
+		int i = num1-1;
+		while(i > 1)
 		{
-			if(i==1)
-			{
-				continue;	
-			}
 			if(num1 % i==0)
 			{
 				return false;	
 			}
-			i++;			
+			i--;			
 		}
 		return true;
 	}

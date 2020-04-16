@@ -1,4 +1,4 @@
-class PostfixOpUst
+class PostfixUst
 {
 	public static void main(String[]args)
 	{

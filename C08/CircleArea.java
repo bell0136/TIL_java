@@ -9,7 +9,7 @@ class Circle
 		rad = r;
 		PI = 3.14;
 	}
-	public double Circle ()
+	public double getArea()
 	{
 		return rad*rad*PI;
 	}	

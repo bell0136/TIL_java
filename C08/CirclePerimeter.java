@@ -8,7 +8,7 @@ class Circle
 		rad = r;
 		PI = 3.14;
 	}
-	public double Circle ()
+	public double getPerimeter()
 	{
 		return rad*2*PI;
 	}	

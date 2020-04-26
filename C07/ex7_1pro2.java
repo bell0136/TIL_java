@@ -28,9 +28,12 @@ class ex7_1pro2
 	{
 		beads child1 = new beads(15);		
 		beads child2 = new beads(2);
+		System.out.println("게임전");
+		System.out.println("child1's beads count is "+child1.showBeads());
+		System.out.println("child2's beads count is "+child2.showBeads());	
 		child1.plus_beads(2,child2);
-		System.out.println("beads's count is "+child1.showBeads());
-		System.out.println("beads's count is "+child2.showBeads());
-		
+		System.out.println("게임후");
+		System.out.println("child1's beads count is "+child1.showBeads());
+		System.out.println("child2's beads count is "+child2.showBeads());		
 	}	
 }

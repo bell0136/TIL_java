@@ -1,7 +1,6 @@
 import orange.seller.FruitSeller;
 import orange.buyer.FruitBuyer;
-
-public class FruitSalesMain3
+public class FruitSalesMain3_2
 {
 	public static void main(String[] args)
 	{
@@ -9,7 +8,6 @@ public class FruitSalesMain3
 		FruitSeller seller2 = new FruitSeller(0,20,1000);
 	
 		FruitBuyer buyer = new FruitBuyer(10000);
-	
 		buyer.buyApple(seller1, 4500);
 		buyer.buyApple(seller2, 2000);
 		

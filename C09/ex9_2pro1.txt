@@ -1,0 +1,72 @@
+package ex9_2pro1;
+
+class Point
+{
+	private int xpos;
+	private int ypos;
+	public Point (int x,int y)
+	{
+		xpos = x;
+		ypos = y;
+	}
+	void PosInfo()
+	{
+		System.out.println("["+xpos+","+ypos+"]");		
+	}
+}
+
+class Circle
+{
+	private int rad;
+	public Circle (int radius)
+	{
+		rad = radius;
+	}
+	void RadInfo()
+	{
+		System.out.println("radius : "+rad);
+	}
+}
+
+class Ring
+{	
+	int in_x;
+	int in_y;
+	int in_rad;
+	int out_x;
+	int out_y;
+	int out_rad;
+	
+	Ring(int inner_x, int inner_y, int inner_rad, int outter_x, int outter_y, int outter_rad)
+	{
+		in_x = inner_x;
+		in_y = inner_y;
+		in_rad = inner_rad;
+		out_x = outter_x;
+		out_y = outter_y;
+		out_rad= outter_rad;	
+	}
+	void RingInfo()
+	{
+		
+		Point innerPos = new Point(in_x,in_y);
+		Point outterPos = new Point(out_x,out_y);
+		Circle innerRad = new Circle(in_rad);		
+		Circle outterRad = new Circle(out_rad);		
+		System.out.println("Inner Circle Info...");
+		innerRad.RadInfo();
+		innerPos.PosInfo();
+		System.out.println("Outter Circle Info...");
+		outterRad.RadInfo();
+		outterPos.PosInfo();				
+	}
+}
+
+class ex9_2pro1
+{
+	public static void main (String[] args)
+	{
+		Ring ring1 = new Ring(1,1,4,6,7,8);		
+		ring1.RingInfo();		
+	}
+}

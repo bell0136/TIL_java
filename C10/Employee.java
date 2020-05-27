@@ -18,15 +18,7 @@ class Employer
 	{
 		System.out.println("employee's pay is "+erMoney);
 	}
-	public static void main(String[] args)
-	{
-		Employer er1 = new Employer(100000);
-		Employee ee1 = new Employee(2000);
-		er1.erPay(ee1,4500);
-		er1.showErPay();
-		ee1.showEePay();
-		
-	}
+	
 }
 class Employee
 {
@@ -42,6 +34,15 @@ class Employee
 	public void showEePay()
 	{
 		System.out.println("employee's pay is "+eeMoney);
+	}
+	public static void main(String[] args)
+	{
+		Employer er1 = new Employer(100000);
+		Employee ee1 = new Employee(2000);
+		er1.erPay(ee1,4500);
+		er1.showErPay();
+		ee1.showEePay();
+		
 	}
 
 }

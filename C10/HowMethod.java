@@ -3,15 +3,15 @@ class Arith
 	int n1;	
 	int n2;
 	static final double PI = 3.14;
-	public static double add(double n1,double n2)
+	public double add(double n1,double n2)
 	{
 		return n1+n2;
 	}
-	public static double min(double n1,double n2)
+	public double min(double n1,double n2)
 	{
 		return n1 - n2;
 	}
-	public static double mul(double n1,double n2)
+	public double mul(double n1,double n2)
 	{
 		return n1 * n2;
 	}

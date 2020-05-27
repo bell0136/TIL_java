@@ -1,15 +1,13 @@
 class AccessWay
 {
 	static int num = 0;
-	void AccessWay()
+	AccessWay()
 	{
 		incrCnt();
 	}
 	public void incrCnt()
 	{
-		num++;
-	//	System.out.println("here is "+ num);
-		
+		num++;		
 	}
 	
 }

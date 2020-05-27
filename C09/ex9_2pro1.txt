@@ -18,12 +18,14 @@ class Point
 class Circle
 {
 	private int rad;
-	public Circle (int radius)
+	public Circle (int x, int y,int radius)
 	{
 		rad = radius;
+		Point Pos = new Point(x,y);
+		Pos.PosInfo();		
 	}
 	void RadInfo()
-	{
+	{		
 		System.out.println("radius : "+rad);
 	}
 }
@@ -44,22 +46,18 @@ class Ring
 		in_rad = inner_rad;
 		out_x = outter_x;
 		out_y = outter_y;
-		out_rad= outter_rad;	
+		out_rad= outter_rad;				
 	}
+	
 	void RingInfo()
-	{
-		
-		Point innerPos = new Point(in_x,in_y);
-		Point outterPos = new Point(out_x,out_y);
-		Circle innerRad = new Circle(in_rad);		
-		Circle outterRad = new Circle(out_rad);		
+	{		
 		System.out.println("Inner Circle Info...");
-		innerRad.RadInfo();
-		innerPos.PosInfo();
-		System.out.println("Outter Circle Info...");
-		outterRad.RadInfo();
-		outterPos.PosInfo();				
-	}
+		Circle innerC = new Circle(in_x,in_y,in_rad);
+		innerC.RadInfo();
+		System.out.println("Outter Circle Info...");					
+		Circle outterC = new Circle(out_x,out_y,out_rad);
+		outterC.RadInfo();
+	}	
 }
 
 class ex9_2pro1

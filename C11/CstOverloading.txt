@@ -1,0 +1,53 @@
+class Person
+{
+	int milID;
+	int perID;
+	int birthyear;
+	int birthmonth;
+	int birthday;
+	
+	Person(int pID, int mID,int byear,int bmonth,int bday)
+	{
+		perID = pID;
+		milID = mID;
+		birthyear = byear;
+		birthmonth = bmonth;
+		birthday = bday;
+	}
+	
+	Person(int pID,int byear,int bmonth,int bday)
+	{
+		this(pID,0,byear,bmonth,bday);
+	}
+	void showID()
+	{
+		System.out.println("***********************");
+		System.out.println("주민번호 :"+perID);
+		System.out.println("출생년도 :"+birthyear+"년");
+		System.out.println("출생달 :"+birthmonth+"월");
+		System.out.println("출생일 :"+birthday+"일");
+		if(milID==0)
+		{
+			System.out.println("군필 대상아님");
+		}
+		else
+		{
+			System.out.println("군번: "+milID);
+		}
+
+	}
+}
+
+public class CstOverloading 
+{
+
+	public static void main(String[] args) 
+	{
+		Person woman1 = new Person(990201,99,2,1);
+		Person man1 = new Person(980705,2020,98,07,05);
+		woman1.showID();
+		man1.showID();
+
+	}
+
+}

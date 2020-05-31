@@ -1,0 +1,28 @@
+public class ImmutableString
+{
+
+	public static void main(String[] args) 
+	{
+		String str1 = "hello world";
+		String str2 = "hello world";
+		String str3 = "hello sky";
+		if(str1==str2) //참조변수가 생셩되면 그 주소가 가리키는 문자열을 일일이 확인하고 같으면 같은 참조변수를 가리키도록 하는 것인가?
+		{
+			System.out.println("동일한 인스턴스");
+		}
+		else
+		{
+			System.out.println("동일하지 않는 인스턴스");
+		}
+		if(str3==str2)
+		{
+			System.out.println("동일한 인스턴스");
+		}
+		else
+		{
+			System.out.println("동일하지 않는 인스턴스");
+		}
+		
+	}
+
+}

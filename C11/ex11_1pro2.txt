@@ -1,0 +1,11 @@
+public class ex11_1pro2
+
+	public static void main(String[] args) 
+	{
+		StringBuilder str = new StringBuilder("990208-1012752");
+		str.deleteCharAt(6);
+		System.out.println(str);
+		
+	}
+
+}

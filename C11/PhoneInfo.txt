@@ -1,0 +1,45 @@
+class PhoneInfo
+{
+	String name;
+	String phoneNumber;
+	String birthday;
+	PhoneInfo(String n,String number,String birth)
+	{
+		name = n;
+		phoneNumber = number;
+		birthday = birth;
+	}
+	PhoneInfo(String n,String number)
+	{
+		name = n;
+		phoneNumber = number;
+		birthday = "";
+	}
+	void showInfo()
+	{
+		System.out.println("---------------------------");
+		System.out.println("name is "+name);
+		System.out.println("number is "+phoneNumber);
+		if(birthday == "")
+		{
+			System.out.println("**birthday is blank**");
+		}
+		else
+		{
+			System.out.println("birthday is "+birthday);
+		}
+		
+	}
+}
+public class PhoneBook {
+
+	public static void main(String[] args) 
+	{
+		PhoneInfo woman1 = new PhoneInfo("green","010-5544-2323","990605");
+		PhoneInfo man1 = new PhoneInfo("pink","010-5084-8765");
+		woman1.showInfo();
+		man1.showInfo();
+		
+	}
+
+}

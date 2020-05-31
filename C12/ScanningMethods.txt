@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+public class ScanningMethods
+{
+
+	public static void main(String[] args) 
+	{
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("당신의 이름은 무엇입니까?");
+		String str = sc.nextLine();
+		System.out.println("안녕하세요 "+str+"님");
+		System.out.println("스파게티좋아하세요?");
+		boolean answer = sc.nextBoolean();
+		if(answer == true)
+		{
+			System.out.println("좋아하시는 군요");
+		}
+		else
+		{
+			System.out.println("안 좋아하시는구나ㅎㅎ");
+		}
+		System.out.println("동생의 키는 어떻게 되나요?");
+		double tall1 = sc.nextDouble();
+		double tall2 = sc.nextDouble();
+		
+		double tallCompare = tall1-tall2;
+		if(tallCompare>0)
+		{
+			System.out.printf("당신이 %f만큼 키가 더 크군요",tallCompare);
+		}
+		else
+		{
+			System.out.printf("당신이 %f만큼 키가 더 작거나 같군요",tallCompare);
+		}
+		
+		
+		
+		
+	
+	}
+
+}

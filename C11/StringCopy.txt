@@ -1,0 +1,30 @@
+public class StringCopy
+{
+
+	public static void main(String[] args) 
+	{
+		String str1= "lemon";
+		String str2 = new String(str1);
+		String str3 = "lemon";
+		
+		if(str1==str2)
+		{
+			System.out.println("동일 인스턴스 참조");
+		}
+		else
+		{
+			System.out.println("동일치 않은 인스턴스 참조");
+		}
+		
+		if(str1==str3)
+		{
+			System.out.println("동일 인스턴스 참조");
+		}
+		else
+		{
+			System.out.println("동일치 않은 인스턴스 참조");
+		}
+ 		
+	}
+
+}

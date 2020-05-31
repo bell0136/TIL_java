@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class StringScanning
+{
+
+	public static void main(String[] args) 
+	{
+		String str = "1 7 7"; //콤마 들어가면 안된다..
+		Scanner sc = new Scanner(str);
+		
+		int num = sc.nextInt();
+		int num2 = sc.nextInt();
+		int num3 = sc.nextInt();
+		int total = num+num2+num3;
+		
+		System.out.printf("%d , %d , %d의 합은 %d입니다.",num,num2,num3,total);
+		
+	
+	}
+
+}

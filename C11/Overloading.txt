@@ -1,0 +1,42 @@
+class Person
+{
+	int milID;
+	int perID;
+	Person(int pID, int mID)
+	{
+		perID = pID;
+		milID = mID;
+	}
+	Person(int pID)
+	{
+		perID = pID;
+		milID=0;
+	}
+	void showID()
+	{
+		System.out.println("주민번호 :"+perID);
+		if(milID==0)
+		{
+			System.out.println("군필 대상아님");
+		}
+		else
+		{
+			System.out.println("군번: "+milID);
+		}
+
+	}
+}
+
+public class Overloading 
+{
+
+	public static void main(String[] args) 
+	{
+		Person woman1 = new Person(330201);
+		Person man1 = new Person(330201,020123);
+		woman1.showID();
+		man1.showID();
+
+	}
+
+}

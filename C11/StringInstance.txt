@@ -1,0 +1,12 @@
+public class StringInstance
+{
+
+	public static void main(String[] args) 
+	{
+		java.lang.String str1 = "hello world";
+		java.lang.String str2 = "안녕!";
+		System.out.println("첫번째 문자열의 수"+str1.length());
+		System.out.println("두번째 문자열의 수"+str2.length());
+	}
+
+}

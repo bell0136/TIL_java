@@ -1,0 +1,28 @@
+class Friend
+{
+	String name;
+	Friend(String name1)
+	{
+		name = name1;
+	}
+	String showFriend()
+	{
+		return "친구의 이름은 "+name+"입니다.";
+	}
+}
+public class StringToString
+{
+
+	public static void main(String[] args) 
+	{
+		Friend amy = new Friend("이정수");
+		Friend star = new Friend("김나연");
+		System.out.println(amy.showFriend());
+		System.out.println(star.showFriend());
+		
+		System.out.print("출력");
+		System.out.print("종료");
+		
+	}
+
+}

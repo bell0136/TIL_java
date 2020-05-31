@@ -1,0 +1,29 @@
+class SimpleAdder
+{
+	private int num;
+	SimpleAdder()
+	{
+		num=0;
+	}
+	public SimpleAdder Adder(int n)
+	{
+		num+=n;
+		return this;
+	}
+	void adderPrint()
+	{
+		System.out.println(num);
+	}
+}
+public class SelfReference
+{
+
+	public static void main(String[] args) 
+	{
+		SimpleAdder add = new SimpleAdder();
+		
+		add.Adder(3).Adder(2).adderPrint();
+ 		
+	}
+
+}

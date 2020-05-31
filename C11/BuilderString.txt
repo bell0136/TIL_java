@@ -1,0 +1,16 @@
+public class BuilderString
+{
+
+	public static void main(String[] args) 
+	{
+		StringBuilder str1= new StringBuilder("AB");
+		str1.append('A');
+		str1.append("hallo");
+		str1.insert(2,'B');
+		
+		System.out.println(str1);
+		
+ 		
+	}
+
+}

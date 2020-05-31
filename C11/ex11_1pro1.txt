@@ -1,0 +1,11 @@
+public class ex11_1pro1
+{
+
+	public static void main(String[] args) 
+	{
+		StringBuilder str = new StringBuilder("ABCDEFGHIJKLMN");
+		System.out.println(str.reverse());
+		
+	}
+
+}

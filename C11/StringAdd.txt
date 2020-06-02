@@ -1,0 +1,18 @@
+class StringAdd
+{
+	public static void main(String[] args) 
+	{
+		String str1 = "lemon"+"ade";
+		String str2 = "wollo"+1;
+		String str3 = 2+"~~~";
+		String str4 = new String(str1);
+		
+		System.out.println(str1);	
+		System.out.println(str2);
+		System.out.println(str3);
+		System.out.println(str4);
+		
+	}
+}
+
+

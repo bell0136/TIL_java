@@ -5,7 +5,7 @@ class Friend
 	{
 		name = name1;
 	}
-	String showFriend()
+	String toString()
 	{
 		return "친구의 이름은 "+name+"입니다.";
 	}
@@ -17,8 +17,8 @@ public class StringToString
 	{
 		Friend amy = new Friend("이정수");
 		Friend star = new Friend("김나연");
-		System.out.println(amy.showFriend());
-		System.out.println(star.showFriend());
+		System.out.println(amy);
+		System.out.println(star);
 		
 		System.out.print("출력");
 		System.out.print("종료");

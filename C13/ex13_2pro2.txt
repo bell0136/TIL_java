@@ -38,8 +38,8 @@ class changeLine
 		{
 			
 			arr[0][j] = arr_1[j];
-			int total = arr_1.length - arr[0].length;
-			/*int k = 0;
+			/*int total = arr_1.length - arr[0].length;
+			int k = 0;
 			for(k = 0 ; k < total ; k++)
 			{			
 				arr = new int[0][j+k];

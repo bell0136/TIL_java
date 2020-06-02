@@ -43,7 +43,6 @@ class Manager
 
 	void Insert()
 	{	
-		System.out.println("hello");
 		System.out.print("이름 :");
 		String name = sc.nextLine();
 		System.out.print("번호 :");
@@ -62,19 +61,27 @@ class Manager
 		System.out.println("데이터검색을 시작합니다.");
 		System.out.printf("이름 : ");
 		String searchName = sc.nextLine();
+		System.out.println(searchName);
+		
+		System.out.println();
 		int search_i = 0;
+		int check = 0;
+		System.out.println( human[search_i].name.compareTo(searchName));
 		for(search_i = 0 ; search_i < human.length ;search_i++)
 		{
-			if( human[search_i].name.compareTo(searchName) == 0)
+			System.out.println("hi");
+			System.out.println( human[search_i].name.compareTo(searchName));
+			if(human[search_i].name.compareTo(searchName) == 0)
 			{
 				human[search_i].showInfo();
 				System.out.println("데이터 검색 완료");
+				check = 1;
 				break;
 			}
-			else
-			{
-				System.out.println("찾고 계신 이름이 없습니다.");
-			}
+		}
+		if(check == 1)
+		{
+			System.out.println("찾고 계신 이름이 없습니다.");
 		}
 	}
 	
@@ -104,7 +111,7 @@ class Manager
 	}
 	
 }
-public class PhoneBook_ver3 {
+public class PhoneBook {
 
 	public static void main(String[] args) 
 	{
@@ -113,7 +120,9 @@ public class PhoneBook_ver3 {
 		for(i = 0 ; i < 99 ; i++)
 		{
 			person[i] = new Manager();
+			
 		}
+		
 		i = 0;
 		do{
 			System.out.println("선택하세요...");
@@ -129,7 +138,7 @@ public class PhoneBook_ver3 {
 			
 			if(choice == 1) //입력
 			{
-				person[i] = new Manager();
+				System.out.println(i);
 				person[i].Insert();
 				i++;
 				

@@ -1,0 +1,40 @@
+class Number
+{
+	int num;
+	public Number(int n)
+	{
+		num = n;
+	}
+	public int getNumber()
+	{
+		return num;
+	}
+	
+}
+public class EnhancedForlnst
+{	
+	public static void main(String[] args) 
+	{
+		Number[] arr = new Number[] {new Number(3),new Number(5),new Number(7)};
+		for(Number index : arr)
+		{
+			index.num++;
+			System.out.printf(index.getNumber()+" ");
+		}
+		System.out.println();
+		
+		for(Number index : arr)
+		{
+			index = new Number(5);
+			index.num += 2;
+			System.out.printf(index.getNumber()+" ");
+		}
+		System.out.println();
+		
+		for(Number index : arr)
+		{
+			System.out.printf(index.getNumber()+" ");
+		}
+		
+	}
+}

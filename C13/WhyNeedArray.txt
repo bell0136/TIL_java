@@ -1,0 +1,66 @@
+import java.util.Scanner;
+
+class scoreA
+{
+	double FirstScore;
+	double SecondScore;
+	
+	scoreA()
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("성적을 입력하시우");
+		FirstScore = sc.nextDouble();
+		
+	}
+	void scoreCompare(double score)
+	{
+		if(score>FirstScore)
+		{
+			SecondScore = FirstScore;
+			FirstScore=score;
+			
+		}
+		else if(score==FirstScore)
+		{
+			SecondScore=score;
+		}		
+		else if(score>SecondScore)
+		{
+			SecondScore = score;
+		}
+		else if(score==SecondScore)
+		{
+			//동점자발생
+		}
+		
+	}
+	void showA()
+	{
+		System.out.println("******A학점******");
+		System.out.println("학점은"+SecondScore+"이상입니다.");
+		
+	}
+}
+public class WhyNeedArray
+{
+
+	public static void main(String[] args) 
+	{
+		
+		Scanner sc = new Scanner(System.in);
+		scoreA student = new scoreA();
+		int i = 0;
+		double score = 0;
+		for(i = 0; i<9;i++)
+		{
+			System.out.println("성적을 입력하시우");
+			score = sc.nextDouble();
+			student.scoreCompare(score);
+		}
+		
+		student.showA();
+	
+	}
+
+
+}

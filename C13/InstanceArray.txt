@@ -1,0 +1,19 @@
+public class InstanceArray
+{
+
+	public static void main(String[] args) 
+	{
+		String[] arr = new String[3];
+		arr[0] = "array";
+		arr[1] = "hello";
+		arr[2] = "java";
+		
+		int i = 0;
+		for(i=0;i<3;i++)
+		{
+			System.out.println(arr[i]);
+		}
+	}
+
+
+}

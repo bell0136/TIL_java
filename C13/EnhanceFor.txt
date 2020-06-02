@@ -1,0 +1,29 @@
+public class EnhanceFor
+{
+	
+	public static void main(String[] args) 
+	{
+		int[] arr_2 = new int[]{1,2,3,4,5};
+		int sum = 0;
+		
+		for(int index : arr_2)
+		{
+			sum+=index;
+		}
+		System.out.println("요수들의 합 : "+sum);
+		
+		for(int index : arr_2)
+		{
+			index++;
+			System.out.printf(index+" ");
+		}
+		
+		System.out.println();
+		for(int index : arr_2)
+		{
+			
+			System.out.printf(index+" ");
+		}
+		
+	}
+}

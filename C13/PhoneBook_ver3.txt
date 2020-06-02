@@ -1,0 +1,157 @@
+import java.util.Scanner;
+class PhoneInfo
+{
+	String name;
+	String phoneNumber;
+	String birthday;
+	public PhoneInfo(String n,String number,String birth)
+	{
+		name = n;
+		phoneNumber = number;
+		birthday = birth;
+	}
+	public PhoneInfo(String n,String number)
+	{
+		name = n;
+		phoneNumber = number;
+		birthday = "";
+	}
+	void showInfo()
+	{
+		System.out.println("입력한 정보 출력...");
+		System.out.println("name : "+name);
+		System.out.println("number : "+phoneNumber);
+		if(birthday == "")
+		{
+			System.out.println("**birthday is blank**");
+		}
+		else
+		{
+			System.out.println("birthday : "+birthday);
+		}
+		
+	}
+	
+}
+
+class Manager
+{
+	
+	Scanner sc = new Scanner(System.in);
+	PhoneInfo [] human = new PhoneInfo[100]; //생성자 생성안됨
+	int insert_i;
+
+	void Insert()
+	{	
+		System.out.println("hello");
+		System.out.print("이름 :");
+		String name = sc.nextLine();
+		System.out.print("번호 :");
+		String phone = sc.nextLine();
+		System.out.print("생일 :");
+		String birth = sc.nextLine();
+		
+		
+		human[insert_i] = new PhoneInfo(name,phone,birth); //참조변수 바꾸기
+		human[insert_i].showInfo();
+		
+	}
+	
+	void Search()
+	{
+		System.out.println("데이터검색을 시작합니다.");
+		System.out.printf("이름 : ");
+		String searchName = sc.nextLine();
+		int search_i = 0;
+		for(search_i = 0 ; search_i < human.length ;search_i++)
+		{
+			if( human[search_i].name.compareTo(searchName) == 0)
+			{
+				human[search_i].showInfo();
+				System.out.println("데이터 검색 완료");
+				break;
+			}
+			else
+			{
+				System.out.println("찾고 계신 이름이 없습니다.");
+			}
+		}
+	}
+	
+	void Delete()
+	{
+		System.out.println("데이터 삭제을 시작합니다.");
+		System.out.printf("이름 :"+" ");
+		String searchName = sc.nextLine();
+		int delete_i = 0;
+		for(delete_i = 0 ; delete_i < human.length ;delete_i++)
+		{
+			if( human[delete_i].name.compareTo(searchName) == 0)
+			{
+				for( ; delete_i < 100; delete_i++)
+				{
+					human[delete_i] = human[delete_i+1]; //배열이 담고 있는 값은 인스턴스 변수					
+				}
+				System.out.println("삭제가 완료되었습니다.");
+				break;
+			}
+			else
+			{
+				System.out.println("찾고 계신 이름이 없습니다.");
+			}
+		}
+		
+	}
+	
+}
+public class PhoneBook_ver3 {
+
+	public static void main(String[] args) 
+	{
+		Manager [] person = new Manager[100]; 
+		int i = 0;
+		for(i = 0 ; i < 99 ; i++)
+		{
+			person[i] = new Manager();
+		}
+		System.out.println(person[98]);
+		do{
+			System.out.println("선택하세요...");
+			System.out.println("1.데이터 입력");			
+			System.out.println("2.데이터 검색");
+			System.out.println("3.데이터 삭제");
+			System.out.println("4.프로그램 종료");
+			
+			Scanner sc = new Scanner(System.in);
+						
+			int choice = sc.nextInt();
+			sc.nextLine();
+			
+			if(choice == 1) //입력
+			{
+				person[i] = new Manager();
+				person[i].Insert();
+				i++;
+				
+			}
+			if(choice == 2) //검색
+			{
+				person[i].Search();				
+			}
+			
+			if(choice == 3) //삭제
+			{
+				person[i].Delete();
+				i--;
+			}
+			if(choice == 4)
+			{
+				System.out.println("Finish");
+				break;
+			}
+			
+		} while(true);
+				
+	}
+
+}

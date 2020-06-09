@@ -1,0 +1,51 @@
+class AAA
+{
+	public void rideMethod()
+	{
+		System.out.println("AAA method");
+	}
+	public void loadMethod()
+	{
+		System.out.println("void method");
+	}
+}
+
+class BBB extends AAA
+{
+	public void rideMethod()
+	{
+		System.out.println("BBB method");
+	}
+	public void loadMethod(int num)
+	{
+		System.out.println("int method");
+	}
+}
+class CCC extends BBB
+{
+	public void rideMethod()
+	{
+		System.out.println("CCC method");
+	}
+	public void loadMethod(double num)
+	{
+		System.out.println("double method");
+	}
+}
+public class RideAndLoad {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		AAA a = new CCC();//CCC클래스를 가리키는 건 맞지만 컴파일은 AAA로 인식함
+		BBB b = new CCC();
+		CCC c = new CCC();
+		
+		a.rideMethod();
+		b.rideMethod();
+		c.rideMethod();
+		
+		c.loadMethod();
+		c.loadMethod(1);
+		c.loadMethod(2.2);		
+	}
+}

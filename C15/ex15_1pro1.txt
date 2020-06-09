@@ -1,0 +1,56 @@
+class Box
+{
+	public void BoxWrap()
+	{
+		System.out.println("box wrap");
+	}
+	public void wrap()
+	{
+		BoxWrap();
+	}
+}
+
+class PaperBox extends Box
+{
+	public void paperWrap()
+	{
+		System.out.println("paper Wrap");
+	}
+	public void wrap()
+	{
+		paperWrap();
+	}
+}
+class GoldPaperBox extends PaperBox
+{
+	public void goldWrap()
+	{
+		System.out.println("gold wrap");
+	}
+	public void wrap()
+	{
+		goldWrap();
+	}
+}
+class ex15_1pro1
+{
+	public static void wrapBox(Box box)
+	{
+		box.wrap();
+	}
+
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Box box1 = new Box();
+		PaperBox box2 = new PaperBox();
+		GoldPaperBox box3 = new GoldPaperBox();
+		
+		wrapBox(box1);
+		wrapBox(box2);
+		wrapBox(box3);
+		
+	}
+
+	
+}

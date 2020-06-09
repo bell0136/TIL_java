@@ -1,0 +1,26 @@
+class AAA
+{
+	public int num = 2;
+}
+
+class BBB extends AAA
+{
+	public int num = 4;
+}
+class CCC extends BBB
+{
+	public int num = 6;
+}
+public class ValReDeCle {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		CCC a = new CCC(); //C를 가리킴
+		BBB b = a; // B를 가리킴
+		AAA c = b; // A를 가리킴
+		
+		System.out.println("ccc reference is "+a.num);	
+		System.out.println("bbb reference is "+b.num);	
+		System.out.println("aaa reference is "+c.num);	
+	}
+}

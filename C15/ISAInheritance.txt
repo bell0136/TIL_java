@@ -1,0 +1,72 @@
+class Computer
+{
+	String ComputerName;
+	Computer(String ownerName)
+	{
+		ComputerName = ownerName;
+	}
+}
+
+class NotebookComp extends Computer
+{
+	int battery;
+	NotebookComp(int battery, String name)
+	{
+		super(name);
+		this.battery = battery;
+	}
+	void movingPen()
+	{
+		if(battery<1)
+		{
+			System.out.println("배터리가 부족합니다.");
+		}
+		battery -= 1;
+	}
+	void charge()
+	{
+		battery+=5;
+	}
+	void showCharge()
+	{
+		System.out.println("남은 배터리는 "+battery+"입니다.");
+	}
+}
+class TabletNotebook extends NotebookComp
+{
+	String penName;
+	TabletNotebook(String ownerName,int battery, String penName)
+	{
+		super(battery, ownerName);
+		this.penName = penName;
+		
+	}
+	void writing(String name)
+	{
+		if(battery<1)
+		{
+			System.out.println("배터리가 부족합니다.");
+			return;
+		}
+		if(penName.compareTo(name)!=0)
+		{
+			System.out.println("일치하는 펜정보가 없습니다.");
+			return;
+		}
+				
+		System.out.println("필기내용을 처리합니다.");
+		battery -= 1;
+	}
+}
+public class ISAInheritance {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		TabletNotebook pen1 = new TabletNotebook("서울시",21,"Apen");
+		TabletNotebook pen2 = new TabletNotebook("부산시",0,"Bpen");
+		pen1.showCharge();
+		pen2.writing("Bpen");
+		
+	}
+
+}

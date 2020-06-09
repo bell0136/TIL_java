@@ -1,0 +1,57 @@
+class Accumulator
+{
+	private int value; //개인정보
+	Accumulator(int initMoney)
+	{
+		this.value = initMoney;
+		System.out.println("init value is "+ value);
+	}
+	protected void Accumulate(int value)
+	{
+		if(value<0)
+		{
+			System.out.println("not in minus");
+			return;
+		}
+		this.value += value;
+	}
+	protected int getAccumulator()
+	{
+		return value;
+	}
+}
+class SavingAccount extends Accumulator
+{
+	
+	int money;
+	SavingAccount(int initMoney)
+	{
+		super(initMoney);
+		
+	}
+	void SaveMoney(int money)
+	{
+		Accumulate(money);
+		this.money = getAccumulator();
+	}
+	void ShowAccount()
+	{
+		System.out.println("my final balance is "+money);
+	}
+	
+}
+public class PrivateInheritance {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		SavingAccount Man1 = new SavingAccount(1000);
+		
+		Man1.SaveMoney(2000);
+		Man1.SaveMoney(-2000);
+		Man1.SaveMoney(2000);
+		Man1.ShowAccount();
+	
+		
+	}
+
+}

@@ -1,0 +1,31 @@
+class AAA
+{
+	public int num = 2;
+}
+
+class BBB extends AAA
+{
+	public int num = 4;
+	public void showBnum()
+	{
+		System.out.println("A num is "+super.num);
+	}
+}
+class CCC extends BBB
+{
+	public int num = 6;
+	public void showBCnum()
+	{
+		super.showBnum();
+		System.out.println("B num is "+super.num);
+		System.out.println("C num is "+num);
+	}
+}
+public class ShowAllReDecl {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		CCC c = new CCC(); //C를 가리킴
+		c.showBCnum();
+	}
+}

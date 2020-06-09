@@ -1,0 +1,47 @@
+class Car
+{
+	int gasolineGauge;
+	Car (int gasolinGauge)
+	{
+		this.gasolineGauge = gasolinGauge; 
+	}
+	
+}
+class HybridCar extends Car
+{
+	int electricGauge;
+	HybridCar(int gasolineGauge, int electricGauge)
+	{
+		super(gasolineGauge);
+		this.electricGauge = electricGauge;
+	}
+	
+}
+class HyblidWaterCar extends HybridCar
+{
+	int waterGauge;
+	
+	HyblidWaterCar(int gasolineGauge, int electricGauge, int waterGauge)
+	{
+		super(gasolineGauge, electricGauge);
+		this.waterGauge = waterGauge;
+	}
+	public void showCurrentGauge()
+	{
+		System.out.println("잔여 가솔린  :"+gasolineGauge);
+		System.out.println("잔여 전기량  :"+electricGauge);
+		System.out.println("잔여 가솔린  :"+waterGauge);
+	}
+}
+
+public class ex4_1pro1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		HyblidWaterCar Car1 = new HyblidWaterCar(12,24,35);
+		Car1.showCurrentGauge();
+	
+		
+	}
+
+}

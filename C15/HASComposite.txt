@@ -1,0 +1,62 @@
+class gun
+{
+	int gun;
+	gun(int gun)
+	{
+		this.gun = gun;
+	}
+	void shot()
+	{
+		gun--;
+		System.out.println("총알이 "+gun+"남았습니다.");
+	}
+	
+}
+
+class Police 
+{
+	int handcuffs;
+	gun pistol;
+	Police(int gun,int handcuffs)
+	{
+		
+		this.handcuffs = handcuffs;
+		if(gun!=0)
+		{
+			pistol = new gun(gun);
+		}
+		else 
+		{
+			pistol = null;
+		}
+		
+	}
+	void puthandpuff()
+	{
+		handcuffs--;
+		System.out.println("수갑이 "+handcuffs+"남았습니다.");
+	}
+	void shot()
+	{
+		if(pistol == null)
+		{
+			System.out.println("총알이 없습니다.");
+			
+		}
+		else
+		{
+			pistol.shot();
+		}
+	}
+}
+public class HASComposite {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Police gun1 = new Police(0,5); //총알, 수갑 순서
+		gun1.puthandpuff();
+		gun1.shot();
+		
+	}
+
+}

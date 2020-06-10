@@ -1,0 +1,51 @@
+import java.util.Scanner;
+
+interface Day
+{
+	int Mon = 1;
+	int Tue = 2;
+	int Wed = 3;
+	int Thu = 4;
+	int Fri = 5;
+	int Sat = 6;
+	int Sun = 7;
+}
+
+class MeaningfulConst
+{
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		System.out.println("1.월 2.화 3.수 4.목 5.금 6.토 7.일 ");
+		Scanner sc = new Scanner(System.in);
+		int num = sc.nextInt();
+		if(num == Day.Mon)
+		{
+			System.out.println("오늘은 월요일");
+		}
+		else if(num == Day.Tue)
+		{
+			System.out.println("오늘은 화요일");
+		}
+		else if(num == Day.Wed)
+		{
+			System.out.println("오늘은 수요일");
+		}
+		else if(num == Day.Thu)
+		{
+			System.out.println("오늘은 목요일");
+		}
+		else if(num == Day.Fri)
+		{
+			System.out.println("오늘은 금요일");
+		}
+		else if(num == Day.Sat)
+		{
+			System.out.println("오늘은 토요일");
+		}
+		else if(num == Day.Sun)
+		{
+			System.out.println("오늘은 일요일");
+		}
+	}	
+}

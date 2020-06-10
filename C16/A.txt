@@ -1,0 +1,178 @@
+import java.util.*;
+
+class FriendInfoHandler
+{
+	private Friend[] fre;
+	private int countFriend;
+	String name;
+	String phone;
+	String address;
+	FriendInfoHandler(int i)
+	{
+		countFriend = 0;
+		fre[i] =new Friend(name, phone, address);
+				
+	}
+	void addFriend(Friend fren)
+	{
+		fre[countFriend++] = fren;		
+	}	
+}
+
+class Friend
+{
+	String name;
+	String phone;
+	String address;
+	public Friend(String name, String phone, String address)
+	{
+		this.name = name;
+		this.phone = phone;
+		this.address = address;
+	}
+	public void showData()
+	{
+		System.out.println("이름 :"+name);
+		System.out.println("번호 :"+phone);
+		System.out.println("주소 :"+address);
+	}	
+	public void basicInfo()
+	{
+	}
+}
+
+class HighFriend extends Friend
+{
+	String work;
+	public HighFriend(String name, String phone, String address,String work)
+	{
+		super(name,phone,address);
+		this.work = work;
+	}
+	public void showData()
+	{
+		super.showData();
+		System.out.println("직업 :"+work);
+	}
+	public void basicInfo()
+	{
+		System.out.println("이름 :"+name);
+		System.out.println("번호 :"+phone);
+	}
+}
+
+class UnivFriend extends Friend
+{
+	String major;
+	public UnivFriend(String name, String phone, String address,String major)
+	{
+		super(name,phone,address);
+		this.major = major;
+	}
+	public void showData()
+	{
+		super.showData();
+		System.out.println("전공 :"+major);
+	}
+	public void basicInfo()
+	{
+		System.out.println("이름 :"+name);
+		System.out.println("번호 :"+phone);
+	
+	}
+	
+	void allShowInfo()
+	{
+		int i = 0;
+		for(i=0;i<10;i++)
+		{
+			System.out.println("all data Info*");
+			System.out.println(fren[i].showData());
+			
+		}
+		
+	}
+	void allBasicInfo()
+	{
+		int i = 0;
+		for(i=0;i<10;i++)
+		{
+			System.out.println("all data basic info");
+			System.out.println(fren[i].BasicInfo());
+			
+		}
+	}
+}
+
+class Friendinfo
+{
+	String name;
+	String phone;
+	String address;
+	String major;
+	String job;
+	
+	void inputInfo(int num)
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("이름 :");
+		name = sc.nextLine();
+		System.out.println("번호 :");
+		phone = sc.nextLine();
+		System.out.println("주소 :");
+		address = sc.nextLine();		
+	}
+}
+class A
+{
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		FriendInfoHandler set = new FriendInfoHandler(10);
+				
+		while(true)
+		{
+			System.out.println("1.고교정보");
+			System.out.println("2.대학정보");
+			System.out.println("3.전체정보출력");
+			System.out.println("4.기본정보출력");
+			System.out.println("5.프로그램 종료");
+			
+			Scanner sc = new Scanner(System.in);
+			int num = sc.nextInt();
+			
+			if(num == 1)
+			{
+				System.out.println("직업 :");
+				job = sc.nextLine();
+				addFriend(new HighFriend(name,phone,address,job));
+			}
+			else if(num == 2)
+			{
+				System.out.println("전공 :");
+				major = sc.nextLine();
+				addFriend(new UnivFriend(name,phone,address,major));
+			}
+			else if(num == 3)//전체정보출력
+			{
+				int index = 0;
+				for(index = 0; index<5;index++)
+				{
+					fren[index].showData();
+				}
+			}
+			else if(num == 4) //기본정보출력
+			{
+				int index = 0;
+				for(index = 0; index<5;index++)
+				{
+					fren[index].basicInfo();
+				}
+			}
+			else if(num == 5)
+			{
+				return;
+			}	
+		}					
+	}	
+}

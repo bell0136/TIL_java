@@ -1,0 +1,67 @@
+abstract class PersonInfoSt
+{
+	abstract void addPerson(String Id, String Name);
+	abstract String searchName(String Id);
+}
+
+class PersonInfo
+{
+	String name;
+	String Id;
+	PersonInfo(String name, String Id)
+	{
+		this.name = name;
+		this.Id = Id;
+	}	
+}
+
+class PersonInfoSet extends PersonInfoSt
+{
+	PersonInfo[] set;
+	int numOfPerson;
+	PersonInfoSet(int size)
+	{		
+		set = new PersonInfo[size];
+		numOfPerson = 0;
+	}
+	public void addPerson(String name, String Id)
+	{
+		set[numOfPerson] = new PersonInfo(name,Id);
+		numOfPerson++;
+	}
+	public String searchName(String Id)
+	{
+		int i = 0;
+		int check = 0;
+		for(i = 0 ; i < numOfPerson ; i++)
+		{	
+			if(Id.compareTo(set[i].Id) == 0)
+			{
+				System.out.println("find");
+				check = 1;
+				
+				return set[i].name;
+			}
+		}
+		if(check == 0)
+		{
+			return "no data";	//없습니다.	
+		}
+		return "finish";
+		
+	}	
+}
+
+class AbstractInterface
+{
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		PersonInfoSt set1 = new PersonInfoSet(10);
+		set1.addPerson("hello","009898-098909");
+		set1.addPerson("bye","009888-098909");
+				
+		System.out.println(set1.searchName("009898-098909"));		
+		System.out.println(set1.searchName("9999"));		
+	}	
+}

@@ -1,0 +1,43 @@
+interface reading
+{
+	public void showName();
+}
+
+class OuterClass
+{
+	String name;
+	public OuterClass(String name)
+	{
+		this.name = name;
+	}
+	
+	public reading InnerClass(String num)//reading interface 반환
+	{
+		class LocalClass implements reading
+		{
+			public void showName()
+			{
+				System.out.println("person's name is "+name);
+				System.out.println("person's id is "+num);
+				
+			}
+			
+		}
+		return new LocalClass();
+	}
+}
+
+class LocalParamClassTest
+{
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		OuterClass outer1 =new OuterClass("hello");	
+		reading inner1 = outer1.InnerClass("1234"); //자료형은 reading, new 생성자 쓰고 reading interface가 있는 class이름적기
+		inner1.showName();
+		OuterClass outer2 =new OuterClass("bye");
+		reading inner2 = outer2.InnerClass("789");
+		inner2.showName();
+				
+	}	
+}

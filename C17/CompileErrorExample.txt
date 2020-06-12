@@ -1,0 +1,36 @@
+class TV
+{
+	public void showTV()
+	{
+		System.out.println("tv수신 중");
+	}
+}
+class Computer
+{
+	public void showCom()
+	{
+		System.out.println("컴퓨터 연결 중");
+	}
+}
+
+class IPTV extends TV,Computer
+{
+	public void power()
+	{
+		showTV();
+		showCom();
+	}
+}
+
+class CompileErrorExample
+{
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		IPTV iptv = new IPTV();
+		iptv.power();
+		TV television = iptv;
+		Computer Comp = iptv;
+		
+	}	
+}

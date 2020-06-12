@@ -1,0 +1,65 @@
+interface UpperCasePrintable
+{
+	//
+}
+
+class organize 
+{
+	String org;
+	void printing(Object obj)
+	{
+		String org = obj.toString();
+		if(obj instanceof UpperCasePrintable)
+		{
+			org = org.toUpperCase();
+		}
+		System.out.println(org);
+	}
+}
+class Pos implements UpperCasePrintable
+{
+	int xPos;
+	int yPos;
+	Pos (int x, int y)
+	{
+		xPos = x;
+		yPos = y;		
+	}
+	public String toString()
+	{
+		return "[ x : "+xPos+" , y : "+yPos+" ]";
+	}
+}
+class Pos2
+{
+	int xPos;
+	int yPos;
+	Pos2 (int x, int y)
+	{
+		xPos = x;
+		yPos = y;		
+	}
+	public String toString()
+	{
+		return "[ x : "+xPos+" , y : "+yPos+" ]";
+	}
+}
+
+
+class InterfaceMark
+{
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		Pos pos1 = new Pos(3,4);
+		organize object1 = new organize(); 
+		pos1.toString();
+		object1.printing(pos1);
+		Pos pos2 = new Pos(4,4);
+		object1.printing(pos2);
+		
+		Pos2 point = new Pos2(5,6);
+		object1.printing(point);
+		
+	}	
+}

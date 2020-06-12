@@ -1,0 +1,29 @@
+class Pos
+{
+	int xPos;
+	int yPos;
+	Pos (int x, int y)
+	{
+		xPos = x;
+		yPos = y;		
+	}
+	public String toString()
+	{
+		return "[ x : "+xPos+" , y : "+yPos+" ]";
+	}
+}
+
+
+
+class ImplObjectPrintln
+{
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		Pos pos1 = new Pos(3,4);
+		System.out.println(pos1.toString());
+		Pos pos2 = new Pos(4,4);
+		System.out.println(pos2.toString());
+		
+	}	
+}

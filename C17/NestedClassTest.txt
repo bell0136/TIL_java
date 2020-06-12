@@ -1,0 +1,44 @@
+class OuterClass
+{
+	public OuterClass()
+	{
+		NestedClass nest1= new NestedClass();
+		nest1.simplePrint();
+	}
+	static class NestedClass
+	{
+		void simplePrint()
+		{
+			System.out.println("here is system");
+		}
+	}
+}
+
+class OuterClassTwo
+{
+	public OuterClassTwo()
+	{
+		NestedClass nest1= new NestedClass();
+		nest1.simplePrint();
+	}
+	static class NestedClass
+	{
+		void simplePrint()
+		{
+			System.out.println("here is system 2");
+		}
+	}
+}
+class NestedClassTest
+{
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		OuterClass outer1 =new OuterClass();
+		
+		OuterClassTwo outer2 =new OuterClassTwo();
+	
+		OuterClass.NestedClass out1 = new OuterClass.NestedClass();
+		out1.simplePrint();		
+	}	
+}

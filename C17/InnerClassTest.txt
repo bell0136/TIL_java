@@ -1,0 +1,38 @@
+class OuterClass
+{
+	String name;
+	int num;
+	public OuterClass(String name)
+	{
+		this.name = name;
+		num = 0;
+	}
+	public void showName()
+	{
+		++num;
+		System.out.println(name+" outer class "+num);
+	}
+	class InnerClass
+	{
+		void simplePrint()
+		{
+			showName();
+		}
+	}
+}
+
+class InnerClassTest
+{
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		OuterClass outer1 =new OuterClass("hello");	
+		outer1.showName();
+		OuterClass outer2 =new OuterClass("bye");
+		outer2.showName();
+		OuterClass.InnerClass class1 = outer1.new InnerClass();
+		class1.simplePrint();	
+		OuterClass.InnerClass class2 = outer2.new InnerClass();
+		class2.simplePrint();			
+	}	
+}

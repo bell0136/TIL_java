@@ -1,0 +1,51 @@
+interface ComputerImpl
+{
+	public void showCom();
+}
+
+class TV
+{
+	public void showTV()
+	{
+		System.out.println("tv수신 중");
+	}
+}
+
+class Computer implements ComputerImpl
+{
+	public void showCom()
+	{
+		System.out.println("컴퓨터 연결 중");
+	}
+}
+
+class IPTV extends TV implements ComputerImpl
+{	
+	Computer com = new Computer();
+	
+	public void showCom()
+	{
+		com.showCom();
+	}
+	public void power()
+	{
+		showTV();
+		showCom();
+	}	
+}
+
+class MultiInheriAlternative
+{
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		IPTV iptv = new IPTV();
+		iptv.power();
+		System.out.println();
+		TV television = iptv;
+		television.showTV();
+		ComputerImpl Comp = iptv;
+		Comp.showCom();
+		
+	}	
+}

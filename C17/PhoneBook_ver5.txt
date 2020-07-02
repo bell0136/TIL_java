@@ -121,7 +121,8 @@ class Manager implements InsertHandler
 			major = sc.nextLine();
 			System.out.print("학년 :");
 			year = sc.nextInt();
-			
+			sc.nextLine();
+
 			human[insert_i] = new PhoneUnivInfo(name,phone,major,year);
 			human[insert_i].showInfo();
 			

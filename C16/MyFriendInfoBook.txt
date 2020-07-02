@@ -1,195 +1,175 @@
-import java.util.*;
-
-class FriendInfoHandler
-{
-	private Friend[] fre;
-	private int countFriend;
-	String name;
-	String phone;
-	String address;
-	String job;
-	String major;
-	
-	FriendInfoHandler(int i)
-	{
-		countFriend = 0;
-		fre = new Friend[i];
-		
-	}
-	
-	void addFriend(Friend fren)
-	{
-		fre[countFriend++] = fren;		
-	}	
-	
-	void showAllBasic()
-	{
-		int i = 0;
-		for(i = 0 ; i < countFriend ; i++)
-		{
-			System.out.println("hi");
-			if(fre[i] == null)
-			{
-				System.out.println("it's null");
-			}
-			System.out.println("i is "+i);
-			fre[i].basicInfo();
-		}
-	}
-	void showAllInfo()
-	{
-		int i = 0;
-		for(i = 0 ; i < countFriend ; i++)
-		{
-			System.out.println("hi");
-			if(fre[i] == null)
-			{
-				System.out.println("it's null");
-			}
-			fre[i].showData();			
-		}
-	}
-}
-
+import java.util.Scanner;
 class Friend
 {
 	String name;
-	String phone;
+	String phoneNumber;
 	String address;
-	public Friend(String name, String phone, String address)
+		
+	public Friend(String n,String number,String address)
 	{
-		this.name = name;
-		this.phone = phone;
+		this.name = n;
+		this.phoneNumber = number;
 		this.address = address;
 	}
-	public void showData()
+	
+	void basicInfo()
 	{
-		System.out.println("이름 :"+name);
-		System.out.println("번호 :"+phone);
-		System.out.println("주소 :"+address);
-	}	
-	public void basicInfo()
-	{
-		System.out.println("이름 :"+name);
-		System.out.println("번호 :"+phone);
+		System.out.println("기본 정보 출력...");
+		System.out.println("name : "+name);
+		System.out.println("number : "+phoneNumber);	
 	}
+	void showInfo()
+	{
+		System.out.println("입력한 정보 출력...");
+		System.out.println("name : "+name);
+		System.out.println("number : "+phoneNumber);	
+		System.out.println("address : "+address);	
+	}
+	
 }
-
 class HighFriend extends Friend
 {
 	String work;
-	public HighFriend(String name, String phone, String address,String work)
+	
+	HighFriend(String name,String number,String address,String work)
 	{
-		super(name,phone,address);
+		super(name,number,address);
 		this.work = work;
 	}
-	public void showData()
+	
+	void basicInfo()
 	{
-		super.showData();
-		System.out.println("직업 :"+work);
+		super.basicInfo();
 	}
-	public void basicInfo()
-	{
-		System.out.println("이름 :"+name);
-		System.out.println("번호 :"+phone);
+	void showInfo()
+	{		
+		super.showInfo();
+		System.out.println("work : "+work);
 	}
 }
-
 class UnivFriend extends Friend
 {
 	String major;
-	public UnivFriend(String name, String phone, String address,String major)
+	UnivFriend(String name,String number,String address,String major)
 	{
-		super(name,phone,address);
+		super(name,number,address);
 		this.major = major;
 	}
-	public void showData()
+	
+	void basicInfo()
 	{
-		super.showData();
-		System.out.println("전공 :"+major);
+		super.basicInfo();
 	}
-	public void basicInfo()
-	{
-		System.out.println("이름 :"+name);
-		System.out.println("번호 :"+phone);	
+	void showInfo()
+	{		
+		super.showInfo();
+		System.out.println("major : "+major);		
 	}
 }
-
-class Friendinfo
+class FriendHandler
 {
 	String name;
 	String phone;
 	String address;
+	String work;
 	String major;
-	String job;
+	Scanner sc = new Scanner(System.in);
+	Friend [] human = new Friend[100]; //생성자 생성안됨
 	
-	void inputInfo(int num)
+	int insert_i = 0;
+	
+	FriendHandler()
 	{
-		Scanner sc = new Scanner(System.in);
 		
-		FriendInfoHandler freSet= new FriendInfoHandler(10);
-		
-		
-		if(num == 1 || num == 2)
-		{
-			System.out.println("***********************");
-			System.out.println("이름 :");
-			name = sc.nextLine();
-			System.out.println("번호 :");
-			phone = sc.nextLine();
-			System.out.println("주소 :");
-			address = sc.nextLine();		
-			if(num == 1)
-			{
-				System.out.println("직업 :");
-				job = sc.nextLine();
-							
-				freSet.addFriend(new HighFriend(name,phone,address,job));
-			}
-			else if(num == 2)
-			{
-				System.out.println("전공 :");
-				major = sc.nextLine();
-				freSet.addFriend(new UnivFriend(name,phone,address,major));
-			}
-			
-		}
-		
-		else if(num == 3)
-		{
-			freSet.showAllBasic();
-		}
-		else if(num == 4)
-		{
-			freSet.showAllInfo();
-		}
-			
 	}
+	void Insert(int choice)
+	{	
+		
+		if(choice == 1)
+		{
+			System.out.print("이름 :");
+			name = sc.nextLine();
+			System.out.print("번호 :");
+			phone = sc.nextLine();
+			System.out.print("주소 :");
+			address = sc.nextLine();
+			System.out.print("직업 :");
+			work = sc.nextLine();
+						
+			human[insert_i] = new HighFriend(name,phone,address,work);		
+			insert_i++;
+		}
+		else if(choice == 2)
+		{
+			System.out.print("이름 :");
+			name = sc.nextLine();
+			System.out.print("번호 :");
+			phone = sc.nextLine();
+			System.out.print("주소 :");
+			address = sc.nextLine();
+			System.out.print("전공 :");
+			major = sc.nextLine();
+			
+			human[insert_i] = new UnivFriend(name,phone,address,major);	
+			insert_i++;
+		}
+		else if(choice == 3)
+		{
+			int index = 0;
+			for(index = 0;index < insert_i; index++)
+			{
+				System.out.println(index);
+				human[index].basicInfo();
+			}
+		}
+		else if(choice == 4)
+		{
+			int index = 0;
+			for(index = 0;index < insert_i; index++)
+			{
+				System.out.println(index);
+				human[index].showInfo();
+			}
+		}
+		
+	}	
 }
+
 class MyFriendInfoBook
 {
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Scanner sc = new Scanner(System.in);
-				
-		while(true)
-		{
-			int num = 0; 
-			
-			Friendinfo fren = new Friendinfo();
-			
+	public static void main(String[] args) 
+	{
+		FriendHandler person = new FriendHandler(); 
+		do{
 			System.out.println("1.직업 추가 2.전공 추가 3.기본정보전체출력 4.전체출력 5.종료");
-			num = sc.nextInt();
+			
+			Scanner sc = new Scanner(System.in);
+						
+			int choice = sc.nextInt();
 			sc.nextLine();
 			
-			if(num == 5)
+			if(choice == 1) 
+			{
+				person.Insert(choice);				
+			}
+			else if(choice == 2)
+			{
+				person.Insert(choice);
+			}
+			else if(choice == 3)
+			{
+				person.Insert(choice);
+			}
+			else if(choice == 4)
+			{
+				person.Insert(choice);
+			}
+			if(choice == 5) 
 			{
 				System.out.println("Finish");
-				break;
-			}
-			
-			fren.inputInfo(num);
-			
-		}
-	}	
+				break;			
+			}		
+		} while(true);
+				
+	}
 }

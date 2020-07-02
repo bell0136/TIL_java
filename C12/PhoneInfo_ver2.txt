@@ -4,24 +4,25 @@ class PhoneInfo
 	String name;
 	String phoneNumber;
 	String birthday;
-	PhoneInfo(String n,String number,String birth)
+	public PhoneInfo(String n,String number,String birth)
 	{
-		name = n;
-		phoneNumber = number;
-		birthday = birth;
+		this.name = n;
+		this.phoneNumber = number;
+		this.birthday = birth;
 	}
-	PhoneInfo(String n,String number)
+	public PhoneInfo(String n,String number)
 	{
-		name = n;
-		phoneNumber = number;
-		birthday = "";
+		this.name = n;
+		this.phoneNumber = number;
+		this.birthday = null;
+		
 	}
 	void showInfo()
 	{
 		System.out.println("입력한 정보 출력...");
 		System.out.println("name : "+name);
 		System.out.println("number : "+phoneNumber);
-		if(birthday == "")
+		if(birthday == null)
 		{
 			System.out.println("**birthday is blank**");
 		}
@@ -31,48 +32,79 @@ class PhoneInfo
 		}
 		
 	}
+	
+}
+
+class Manager
+{
+	String name;
+	String phone;
+	String birth;
+	Scanner sc = new Scanner(System.in);
+	PhoneInfo [] human = new PhoneInfo[100]; //생성자 생성안됨
+	int insert_i;
+	Manager()
+	{
+		int index = 0; 
+		for(index = 0; index <100; index++)
+		{
+			human[index] = new PhoneInfo(name,phone);
+			human[index] = new PhoneInfo(name,phone,birth);
+			
+		}
+	}
+	void Insert()
+	{	
+		System.out.print("이름 :");
+		name = sc.nextLine();
+		System.out.print("번호 :");
+		phone = sc.nextLine();
+		System.out.print("생일 :");
+		birth = sc.nextLine();
+		
+		if(birth.compareTo("") == 0)
+		{
+			human[insert_i] = new PhoneInfo(name,phone);
+			
+		}
+		else
+		{
+			human[insert_i] = new PhoneInfo(name,phone,birth);
+		}
+		 //참조변수 바꾸기
+		human[insert_i].showInfo();
+		insert_i++;
+	}
+	
 }
 public class PhoneBook {
 
 	public static void main(String[] args) 
 	{
-		while(true)
-		{
+		Manager person = new Manager(); 
+		do{
 			System.out.println("선택하세요...");
-			System.out.println("1.데이터입력");
+			System.out.println("1.데이터 입력");			
 			System.out.println("2.프로그램 종료");
+			
 			Scanner sc = new Scanner(System.in);
+						
 			int choice = sc.nextInt();
 			sc.nextLine();
-			if(choice == 1)
+			
+			if(choice == 1) //입력
 			{
-				System.out.printf("선택 : %d\n",choice);
-				System.out.print("이름 :");
-				String name = sc.nextLine();
-				System.out.print("번호 :");
-				String phone = sc.nextLine();
-				System.out.print("생일 :");
-				String birth = sc.nextLine();
-				if(birth=="\n")
-				{
-					PhoneInfo person1 = new PhoneInfo(name,phone);
-					person1.showInfo();
-				}
-				else
-				{
-					PhoneInfo person1 = new PhoneInfo(name,phone,birth);
-					person1.showInfo();
-				}
+				person.Insert();
 				
 			}
-			if(choice == 2)
+			if(choice == 2) //검색
 			{
 				System.out.println("Finish");
 				break;
 			}
 			
-		}
-		
+		} while(true);
+				
 	}
 
 }

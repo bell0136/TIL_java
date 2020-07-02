@@ -3,30 +3,31 @@ class PhoneInfo
 	String name;
 	String phoneNumber;
 	String birthday;
-	PhoneInfo(String n,String number,String birth)
+	public PhoneInfo(String n,String number,String birth)
 	{
-		name = n;
-		phoneNumber = number;
-		birthday = birth;
+		this.name = n;
+		this.phoneNumber = number;
+		this.birthday = birth;
 	}
-	PhoneInfo(String n,String number)
+	public PhoneInfo(String n,String number)
 	{
-		name = n;
-		phoneNumber = number;
-		birthday = "";
+		this.name = n;
+		this.phoneNumber = number;
+		this.birthday = null;
+		
 	}
 	void showInfo()
 	{
-		System.out.println("---------------------------");
-		System.out.println("name is "+name);
-		System.out.println("number is "+phoneNumber);
-		if(birthday == "")
+		System.out.println("입력한 정보 출력...");
+		System.out.println("name : "+name);
+		System.out.println("number : "+phoneNumber);
+		if(birthday == null)
 		{
 			System.out.println("**birthday is blank**");
 		}
 		else
 		{
-			System.out.println("birthday is "+birthday);
+			System.out.println("birthday : "+birthday);
 		}
 		
 	}

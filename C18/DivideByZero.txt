@@ -1,0 +1,29 @@
+import java.util.Scanner;
+public class DivideByZero {
+
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		int [] arr = new int[100] ;
+		Scanner sc = new Scanner(System.in);
+		
+		
+		System.out.println("피제수입력");
+		arr[0] = sc.nextInt();
+		System.out.println("제수입력");
+		arr[1] = sc.nextInt();
+		
+		try
+		{
+			System.out.printf("몫 : %d 나머지 : %d",arr[0]/arr[1],arr[0]%arr[1]);
+	
+		}
+		catch(ArithmeticException e)
+		{
+			System.out.println("나눗셈실패");
+			System.out.println(e.getMessage());
+		}
+			
+	}
+
+}

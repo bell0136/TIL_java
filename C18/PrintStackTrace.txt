@@ -1,0 +1,86 @@
+import java.util.Scanner;
+class AgeError extends Exception
+{
+	public AgeError()
+	{
+		System.out.println("유효하지 않는 나이입니다.");
+		
+	}
+}
+class NameError extends Exception
+{
+	public NameError()
+	{
+		System.out.println("유효하지 않는 이름입니다.");
+		
+	}
+}
+
+class PersonInfo
+{
+	String name;
+	int age;
+	PersonInfo(String name,int age)
+	{
+		this.name = name;
+		this.age = age;
+	}
+}
+
+public class PrintStackTrace
+{
+	
+	
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		int age;
+		String name;
+		
+		try
+		{	
+			System.out.println("나이입력");
+			age = checkAge();
+			System.out.println("나이는 "+age+"세 입니다.");
+		}
+		catch(AgeError e)
+		{			
+			
+		}
+		try
+		{	
+			System.out.println("이름입력");
+			name = checkName();
+			System.out.println("이름은 "+name+"입니다.");
+		}
+		catch(NameError e)
+		{			
+			
+		}
+		
+	}
+	public static int checkAge() throws AgeError
+	{
+		Scanner sc = new Scanner(System.in);
+		int age = sc.nextInt();
+		if( age < 0 )
+		{
+			AgeError check = new AgeError(); 
+			throw check;
+		}
+		return age;
+	}
+	public static String checkName() throws NameError
+	{
+		Scanner sc = new Scanner(System.in);
+		String name = sc.nextLine();
+		if(name.length()<2)
+		{
+			NameError check = new NameError(); 
+			throw check;
+		}
+		return name;
+	}
+	
+
+}

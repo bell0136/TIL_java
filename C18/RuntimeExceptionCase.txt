@@ -1,0 +1,59 @@
+import java.util.Scanner;
+class NullCheck
+{
+	void show()
+	{
+		System.out.println("hello");
+	}
+}
+public class RuntimeExceptionCase {
+
+	public static void main(String[] args) 
+	{
+		int arr[] = new int[5];
+		// TODO Auto-generated method stub
+		try
+		{
+			arr[6] = 1;
+		}
+		catch(ArrayIndexOutOfBoundsException e)
+		{
+			//System.out.println("array bound error!");
+		
+			System.out.println(e.getMessage());
+		}
+		try
+		{
+			Object ch1 = new NullCheck();
+			//String result = (String)ch1;
+			String str1 = (String)ch1; 
+		}
+		catch(ClassCastException e)
+		{
+			//System.out.println("Cast error!");
+			System.out.println(e.getMessage());
+		}
+		try
+		{
+			int arr2[] = new int[-5];
+		}
+		catch(NegativeArraySizeException e)
+		{
+			//System.out.println("array (-)size error!");
+			System.out.println(e.getMessage());
+		}
+		try
+		{
+			NullCheck ch2 = new NullCheck();
+			ch2 = null;
+			ch2.show();
+		}
+		catch(NullPointerException e)
+		{
+			//System.out.println("null pointer error!");
+			System.out.println(e.getMessage());
+		}
+		
+	}
+
+}

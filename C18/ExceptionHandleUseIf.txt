@@ -1,0 +1,36 @@
+import java.util.Scanner;
+public class ExceptionHandleUseIf {
+
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		int [] arr = new int[100];
+		Scanner sc = new Scanner(System.in);
+		
+		for(int i = 0 ; i < 3 ; i++)
+		{
+			System.out.println("피제수입력");
+			int result1 = sc.nextInt();
+			System.out.println("제수입력");
+			int result2 = sc.nextInt();
+			if(result2 == 0)
+			{
+				System.out.println("제수는 0이 될 수 없습니다.");
+				i--;
+				continue;
+			}
+			System.out.println("인덱스입력");
+			int result3 = sc.nextInt();
+			if(result3 < 0 ||result3 > 99)
+			{
+				System.out.println("인덱스범위초과");
+				i--;
+				continue;
+			}
+			arr[result3] = result1/result2;
+			System.out.printf("값출력 : %d 인덱스 값 : %d\n",arr[result3],result3);
+	
+		}
+	}
+
+}

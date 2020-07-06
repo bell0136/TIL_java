@@ -1,0 +1,42 @@
+import java.util.Scanner;
+class AgeError extends Exception
+{
+	public AgeError()
+	{
+		System.out.println("유효하지 않는 나이입니다.");
+		
+	}
+}
+
+public class ThrowsFromMain{
+	
+	public static void main(String[] args) throws AgeError
+	{
+		// TODO Auto-generated method stub
+		int age;
+		System.out.println("나이입력");
+		try
+		{		
+			age = checkAge();
+			System.out.println("나이는 "+age+"세 입니다.");
+		}
+		catch(AgeError e)
+		{			
+			
+		}
+		
+	}
+	public static int checkAge() throws AgeError
+	{
+		Scanner sc = new Scanner(System.in);
+		int age = sc.nextInt();
+		if( age < 0 )
+		{
+			AgeError check = new AgeError(); 
+			throw check;
+		}
+		return age;
+	}
+	
+
+}

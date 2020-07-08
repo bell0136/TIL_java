@@ -1,0 +1,80 @@
+class CheckPos
+{
+	int ch_xpos;
+	int ch_ypos;
+	CheckPos(int ch_xpos,int ch_ypos)
+	{
+		this.ch_xpos = ch_xpos;
+		this.ch_ypos = ch_ypos;
+	}
+	public boolean equals(Point Obj)
+	{
+		System.out.println("xpos : "+ch_xpos);	
+		System.out.println("xpos : point "+Obj.xpos);
+		System.out.println("ypos : "+ch_ypos);
+		System.out.println("ypos : point "+Obj.ypos);
+		if(this.ch_xpos == Obj.xpos & this.ch_ypos == Obj.ypos)		
+			return true;		
+		else		
+			return false;		
+	}
+}
+class Point
+{
+	int xpos;
+	int ypos;
+	Point(int xpos,int ypos)
+	{
+		this.xpos = xpos;
+		this.ypos = ypos;		
+	}
+	void showPoint()
+	{
+		System.out.printf("[%d , %d]",xpos,ypos);
+	}
+}
+class Ractangle
+{
+	Point left;
+	Point right;
+	Ractangle()
+	{	
+		left = new Point(4,5);
+		right = new Point(7,8);			
+	}
+	void showRac()
+	{
+		CheckPos check_left = new CheckPos(7,10);
+		CheckPos check_right = new CheckPos(7,8);
+		
+		System.out.println("직사각형의 위치정보");
+		System.out.println("좌상단 좌표");
+		if(check_left.equals(left))
+		{			
+			left.showPoint();
+		}
+		else
+		{
+			System.out.println("동일한 좌표가 아닙니다.");
+		}
+		
+		System.out.println("우하단 좌표");
+		if(check_right.equals(right))
+		{
+			right.showPoint();
+		}
+		else
+		{
+			System.out.println("동일한 좌표가 아닙니다.");
+		}		
+	}	
+}
+public class ex19-1_pro1
+{	
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		Ractangle arc = new Ractangle();
+		arc.showRac();
+	}
+}

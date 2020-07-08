@@ -1,0 +1,26 @@
+class Sname
+{
+	String name;
+	Sname(String name)
+	{
+		this.name = name;
+		
+	}
+	protected void finalize() throws Throwable
+	{
+		super.finalize();
+		System.out.println(name+"이 소멸되었습니다.");
+	}
+}
+public class ObjectFinalize
+{
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		Sname na = new Sname("green");
+		na = null;
+		System.out.println("프로그램 종료");
+	}
+	
+
+}

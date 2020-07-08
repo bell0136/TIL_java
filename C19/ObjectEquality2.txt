@@ -1,0 +1,46 @@
+class isNumber
+{
+	int num;
+	isNumber(int num)
+	{
+		this.num = num;
+		
+	}
+	public boolean equals (Object obj)
+	{
+		if(this.num == ((isNumber)obj).num)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+}
+public class ObjectEquality2
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		isNumber num1 = new isNumber(10);
+		isNumber num2 = new isNumber(12);
+		isNumber num3 = new isNumber(10);
+
+		if(num1.equals(num2))
+		{
+			System.out.println("동일 값");
+		}
+		else 
+		{
+			System.out.println("다른 값");
+		}
+		if(num1.equals(num3))
+		{
+			System.out.println("동일 값");
+		}
+		else 
+		{
+			System.out.println("다른 값");
+		}	
+	}
+}

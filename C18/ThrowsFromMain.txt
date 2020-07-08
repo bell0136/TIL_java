@@ -7,22 +7,55 @@ class AgeError extends Exception
 		
 	}
 }
+class NameError extends Exception
+{
+	public NameError()
+	{
+		System.out.println("유효하지 않는 이름입니다.");
+		
+	}
+}
 
-public class ThrowsFromMain{
+class PersonInfo
+{
+	String name;
+	int age;
+	PersonInfo(String name,int age)
+	{
+		this.name = name;
+		this.age = age;
+	}
+}
+
+public class ExceptionHandleUseIf 
+{
 	
-	public static void main(String[] args) throws AgeError
+	
+	public static void main(String[] args) 
 	{
 		// TODO Auto-generated method stub
 		int age;
-		System.out.println("나이입력");
+		String name;
+		
 		try
-		{		
+		{	
+			System.out.println("나이입력");
 			age = checkAge();
 			System.out.println("나이는 "+age+"세 입니다.");
 		}
 		catch(AgeError e)
 		{			
-			
+			e.printStackTrace();
+		}
+		try
+		{	
+			System.out.println("이름입력");
+			name = checkName();
+			System.out.println("이름은 "+name+"입니다.");
+		}
+		catch(NameError e)
+		{			
+			e.printStackTrace();
 		}
 		
 	}
@@ -37,6 +70,18 @@ public class ThrowsFromMain{
 		}
 		return age;
 	}
+	public static String checkName() throws NameError
+	{
+		Scanner sc = new Scanner(System.in);
+		String name = sc.nextLine();
+		if(name.length()<2)
+		{
+			NameError check = new NameError(); 
+			throw check;
+		}
+		return name;
+	}
 	
 
 }
+

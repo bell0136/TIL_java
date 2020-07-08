@@ -1,0 +1,26 @@
+public class StringEquals
+{	
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		String spring = new String("it's spring");
+		String summer = new String("it's spring");
+		if(spring == summer)
+		{
+			System.out.println("동일 인스턴스 참조");
+		}
+		else
+		{
+			System.out.println("다른 인스턴스 참조");
+		}
+		if(spring.equals(summer))
+		{
+			System.out.println("동일 내용");
+		}
+		else
+		{
+			System.out.println("다른 내용");
+		}
+		
+	}
+}

@@ -1,0 +1,60 @@
+interface read
+{
+	void readable();
+	
+}
+class A 
+{
+	void A(Object a)
+	{
+		
+	}
+	public read show()
+	{	
+		return new read()
+		{
+			public void readable()
+			{
+				System.out.println("its readable");
+			}
+		};		
+	}	
+}
+
+class AA
+{
+	void meth(Object a)
+	{
+		System.out.println("hello");
+		class CC
+		{
+			
+		}
+	}
+}
+class Class_A
+{
+	public void showing()
+	{
+		System.out.println("1");
+	}
+}
+class Encapsulation2 
+{
+	public static void main(String[] args) 
+	{	
+		A anony1 = new A() 
+		{ 
+			public void reader()
+			{
+				System.out.println("1");
+			}
+		};
+		
+		anony1.show();
+		
+		//read b = a.show(); //메소드 호출 후 생성
+		//b.readable();
+	}
+}
+

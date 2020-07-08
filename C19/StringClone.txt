@@ -1,0 +1,48 @@
+class Person implements Cloneable
+{
+	String name;
+	int age;
+	Person(String name,int age)
+	{
+		this.name = name;
+		this.age = age;
+	}
+	void changePerson(String name,int age)
+	{
+		this.name = name;
+		this.age = age;
+	}
+	public Object clone() throws CloneNotSupportedException
+	{
+		Person per2 = (Person)super.clone();
+		return per2;
+	}
+	void showPerson()
+	{
+		System.out.println("Person Info");
+		System.out.printf("name : %s \n",name);
+		System.out.printf("age : %d \n",age);
+	}
+	
+}
+public class StringClone
+{	
+	public static void main(String[] args) throws CloneNotSupportedException 
+	{
+		// TODO Auto-generated method stub
+		try
+		{
+			Person per1 = new Person("amy",23);
+			Person per2 = (Person)per1.clone();
+			
+			
+			per1.changePerson("green", 33);
+			per1.showPerson();
+			per2.showPerson();
+		}
+		catch(CloneNotSupportedException e)
+		{
+			e.printStackTrace();
+		}		
+	}
+}

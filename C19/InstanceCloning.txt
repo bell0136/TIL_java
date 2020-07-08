@@ -1,0 +1,36 @@
+class Point implements Cloneable 
+{
+	int xpos;
+	int ypos;
+	Point(int x,int y)
+	{
+		this.xpos = x;
+		this.ypos = y;
+	}
+	void showPoint()
+	{
+		System.out.printf("[ %d , %d ]\n",xpos,ypos);
+	}
+	public Object clone() throws CloneNotSupportedException 
+	{		
+		return super.clone();
+	}
+}
+public class InstanceCloning
+{	
+	public static void main(String[] args) throws CloneNotSupportedException 
+	{
+		// TODO Auto-generated method stub
+		try
+		{
+			Point square = new Point(3,4);
+			Point square2 = (Point)square.clone();
+			square.showPoint();
+			square2.showPoint();
+		}
+		catch(CloneNotSupportedException e)
+		{
+			e.printStackTrace();
+		}		
+	}
+}

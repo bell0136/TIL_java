@@ -1,0 +1,69 @@
+class Point implements Cloneable 
+{
+	int xpos;
+	int ypos;
+	Point(int x,int y)
+	{
+		this.xpos = x;
+		this.ypos = y;
+	}
+	void showPoint()
+	{
+		System.out.printf("[ %d , %d ]\n",xpos,ypos);
+	}
+	public Object clone() throws CloneNotSupportedException 
+	{		
+		return super.clone();
+	}
+}
+class Ractangle implements Cloneable
+{
+	Point left;
+	Point right;
+	Ractangle(int xpos,int ypos,int xpos1,int ypos1)
+	{
+		this.left = new Point(xpos,ypos);
+		this.right = new Point(xpos1,ypos1);
+	}
+	void changePos(int xpos,int ypos,int xpos1,int ypos1)
+	{
+		left.xpos = xpos;
+		left.ypos = ypos;
+		right.xpos = xpos1;
+		right.ypos = ypos1;		
+	}
+	void showRactangle()
+	{
+		System.out.println("직사각형 위치정보");
+		System.out.println("좌상단");
+		System.out.printf("[ %d , %d ]\n",left.xpos,left.ypos);
+		System.out.println("우하단");
+		System.out.printf("[ %d , %d ]\n",right.xpos,right.ypos);
+		System.out.println();
+		
+	}
+	public Object clone() throws CloneNotSupportedException 
+	{		
+		return super.clone();
+	}
+	
+}
+public class ShallowCopy
+{	
+	public static void main(String[] args) throws CloneNotSupportedException 
+	{
+		// TODO Auto-generated method stub
+		try
+		{
+			Ractangle square = new Ractangle(3,4,5,5);			
+			square.showRactangle();
+			square.changePos(1,1,3,3);
+			Ractangle square2 = (Ractangle)square.clone();
+			square2.showRactangle();
+		}
+		catch(CloneNotSupportedException e)
+		{
+			e.printStackTrace();
+		}		
+	}
+}

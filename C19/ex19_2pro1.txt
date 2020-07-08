@@ -1,0 +1,81 @@
+class PersonBasicInfo implements Cloneable
+{
+	String company;
+	String work;
+	PersonBasicInfo(String company, String work)
+	{
+		this.company = company;
+		this.work = work;
+	}	
+	void changeWork(String work)
+	{
+		this.work = work;
+	}
+	void showCompanyInfo()
+	{
+		System.out.println("basicInfo...");
+		System.out.printf("company is : %s\n",company);
+		System.out.printf("work is : %s\n",work);
+	}
+	public Object clone() throws CloneNotSupportedException
+	{
+		PersonBasicInfo copyCompany = (PersonBasicInfo)super.clone();				
+		return copyCompany;
+	}	
+}
+class PersonInfo implements Cloneable
+{
+	String name;
+	int age;
+	String company;
+	String work;
+	PersonBasicInfo per1;
+	PersonInfo(String name,int age,String company,String work)
+	{
+		this.name = name;
+		this.age = age;
+		this.company = company;
+		this.work = work;
+		per1 = new PersonBasicInfo(company,work);
+		
+	}
+	void changePerson(String work)
+	{
+		per1.changeWork(work);
+	}
+	void showInfo()
+	{
+		System.out.println("PersonInfo...");
+		System.out.printf("name is %s\n",name);
+		System.out.printf("age is %d\n",age);
+		per1.showCompanyInfo();
+	}	
+	public Object clone() throws CloneNotSupportedException
+	{
+		PersonInfo perInfo = (PersonInfo)super.clone();		
+		perInfo.per1 = (PersonBasicInfo)per1.clone();
+		
+		return perInfo;
+	}	
+}
+
+public class ex19_2pro1
+{	
+	public static void main(String[] args) throws CloneNotSupportedException 
+	{
+		// TODO Auto-generated method stub
+		try
+		{
+			PersonInfo per1 = new PersonInfo("amy",23,"apple","encoding");
+			PersonInfo per2 = (PersonInfo)per1.clone();
+						
+			per1.changePerson("decoding");
+			per1.showInfo();
+			per2.showInfo(); //encoding 출력
+		}
+		catch(CloneNotSupportedException e)
+		{
+			e.printStackTrace();
+		}		
+	}
+}

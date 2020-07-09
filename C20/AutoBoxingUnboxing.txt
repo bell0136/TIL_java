@@ -1,0 +1,17 @@
+public class AutoBoxingUnboxing
+{	
+	
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		Integer ivalue = new Integer(3);
+		Double dvalue = new Double(3.14);
+		System.out.println(ivalue);
+		System.out.println(dvalue);
+		
+		int num =ivalue;
+		double num2 = dvalue;
+		System.out.println(num);
+		System.out.println(num2);
+	}
+}

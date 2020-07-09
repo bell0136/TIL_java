@@ -1,0 +1,27 @@
+class IntWrapper
+{
+	int num;
+	IntWrapper(int num)
+	{
+		this.num= num;
+	}
+	public String toString()
+	{
+		return ""+num;
+	}
+}
+
+public class WrappingInteger
+{	
+	static void showData(Object obj)
+	{
+		System.out.println(obj);
+	}
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		IntWrapper rap = new IntWrapper(3);
+		WrappingInteger.showData(rap);	
+		WrappingInteger.showData(new IntWrapper(7));
+	}
+}

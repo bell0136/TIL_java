@@ -1,0 +1,14 @@
+public class DoubleError
+{		
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		double a = 0.58567;
+		double b = 0.75;
+		
+		double result = a+b;
+		double mulResult = a*b;
+		System.out.println(result);
+		System.out.println(mulResult);	
+	}
+}

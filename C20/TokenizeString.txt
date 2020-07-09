@@ -1,0 +1,14 @@
+import java.util.StringTokenizer;
+public class TokenizeString
+{		
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub	
+		String data = "11:22:33:44:55"; 
+		StringTokenizer token = new StringTokenizer(data,":");
+		while(token.hasMoreTokens())
+		{
+			System.out.println(token.nextToken());
+		}
+	}
+}

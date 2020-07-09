@@ -1,0 +1,14 @@
+public class BoxingUnboxing 
+{	
+	
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		Integer ivalue = new Integer(3);
+		Double dvalue = new Double(3.14);
+		System.out.println(ivalue);
+		System.out.println(dvalue);
+		System.out.println(ivalue.intValue()+10);
+		System.out.println(dvalue.doubleValue()+3.24);
+	}
+}

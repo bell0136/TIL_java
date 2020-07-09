@@ -1,0 +1,22 @@
+public class ex20_1pro1
+{	
+	
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub		
+		Integer ivalue = Integer.valueOf(3333);
+		Integer dvalue = Integer.valueOf(3333);		
+		
+		System.out.println(ivalue);
+		System.out.println(dvalue);
+		if(ivalue == dvalue)
+		{
+			System.out.println("동일 인스터스 참조");
+		}
+		else
+		{
+			System.out.println("다른 인스턴스 참조");
+		}
+	
+	}
+}

@@ -1,0 +1,21 @@
+import java.math.BigInteger;
+
+public class SoBigInteger
+{	
+	
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		System.out.printf("최소 정수 : %d\n",Long.MIN_VALUE);
+		System.out.printf("최대 정수 : %d\n",Long.MAX_VALUE);
+		BigInteger a = new BigInteger("10000000000000000000");
+		BigInteger b = new BigInteger("-10000000000000000000");
+		BigInteger result = a.add(b);
+		BigInteger result2 =a.multiply(b);
+		System.out.println(result);
+		System.out.println(result2);
+		
+		
+	
+	}
+}

@@ -1,0 +1,17 @@
+import java.util.*;
+import java.math.*;
+
+public class ex20_2pro1
+{		
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		
+		Scanner sc = new Scanner(System.in);
+		BigDecimal num = new BigDecimal(sc.nextDouble());
+		System.out.println(num.abs());
+	
+		BigDecimal num2 = new BigDecimal(sc.nextDouble());
+		System.out.println(num2.abs());			
+	}
+}

@@ -1,0 +1,29 @@
+import java.util.StringTokenizer;
+public class TokenizeString2
+{		
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub	
+		String phone = "TEL 010-0521-4044"; 
+		String javaCode = "num+1=0";
+		StringTokenizer token = new StringTokenizer(phone);
+		StringTokenizer token2 = new StringTokenizer(phone,"-");
+		StringTokenizer token3 = new StringTokenizer(javaCode,"+=",true);
+		
+		System.out.println("first");
+		while(token.hasMoreTokens())
+		{
+			System.out.println(token.nextToken());
+		}
+		System.out.println("second");
+		while(token2.hasMoreTokens())
+		{
+			System.out.println(token2.nextToken());
+		}
+		System.out.println("third");
+		while(token3.hasMoreTokens())
+		{
+			System.out.println(token3.nextToken());
+		}
+	}
+}

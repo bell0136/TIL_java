@@ -1,0 +1,16 @@
+import java.math.*;
+public class NotErrorBigDecimal
+{	
+	
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		BigDecimal a = new BigDecimal("0.58567");
+		BigDecimal b = new BigDecimal("0.75");
+		
+		BigDecimal addResult = a.add(b);
+		BigDecimal mulResult = a.multiply(b);
+		System.out.println("add result is " +addResult);
+		System.out.println("mul result is " +mulResult);	
+	}
+}

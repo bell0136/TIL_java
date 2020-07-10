@@ -6,19 +6,12 @@ public class ex20_3pro2
 		// TODO Auto-generated method stub		
 		Random rand = new Random();
 		double result;
-		int i =0;
+		int i = 0;
 		for(i = 0 ; i < 5 ; i++)
 		{			
 			result = Math.random()+rand.nextInt(9);
-			if(result >= 0 || result <= 10 )
-			{		
-				System.out.println(result);							
-			}
-			else
-			{
-				i--;
-				continue;	
-			}			
+			System.out.println(result);							
+					
 		}
 	}
 }

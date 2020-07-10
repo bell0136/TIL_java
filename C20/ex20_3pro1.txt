@@ -1,5 +1,5 @@
 import java.util.*;
-public class ex20-3pro1
+public class ex20_3pro1
 {		
 	public static void main(String[] args) 
 	{

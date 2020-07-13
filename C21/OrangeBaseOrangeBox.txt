@@ -1,0 +1,40 @@
+class OrangeBox
+{
+	int sweet;
+	OrangeBox(int sweet)
+	{
+		this.sweet = sweet;
+	}
+	void showOrangeBox()
+	{
+		System.out.println("sweet is "+sweet);
+	}
+}
+class FruitBox
+{
+	OrangeBox item;
+	FruitBox(OrangeBox item)
+	{
+		this.item = item;
+	}
+	OrangeBox showFruitBox()
+	{
+		return item;
+	}
+}
+
+public class OrangeBaseOrangeBox
+{	
+	public static void main(String[] args) 
+	{		
+		// TODO Auto-generated method stub	
+		
+		FruitBox fruit2 = new FruitBox(new OrangeBox(10));
+		OrangeBox orang2 = fruit2.showFruitBox();
+		orang2.showOrangeBox();
+				
+		FruitBox fruit1 = new FruitBox("grape");
+		OrangeBox orang1 = (OrangeBox)fruit1.showFruitBox();
+		orang1.showOrangeBox();		
+	}
+}

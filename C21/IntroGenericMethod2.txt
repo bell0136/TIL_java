@@ -1,0 +1,45 @@
+class AAA
+{	
+	public String toString()
+	{
+		return "class AAA";
+	
+	}
+}
+class BBB
+{
+	public String toString()
+	{
+		return "class BBB";
+	}
+}
+class InitAndPlus 
+{
+	int cntInit;
+	
+	public <T,U> void initPlus(T init1,U init2)
+	{
+		System.out.println(init1);
+		System.out.println(init2);
+		cntInit++;
+	}
+	public void showCnt()
+	{
+		System.out.println(cntInit);
+	}
+}
+
+public class IntroGenericMethod2
+{	
+	public static void main(String[] args) 
+	{		
+		// TODO Auto-generated method stub	
+		
+		AAA Aclass = new AAA();
+		BBB Bclass = new BBB();
+		InitAndPlus cnt1 = new InitAndPlus();
+		cnt1.<AAA,BBB>initPlus(Aclass,Bclass);		
+		cnt1.initPlus(Aclass,Bclass);		
+		cnt1.showCnt();
+	}
+}

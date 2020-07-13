@@ -1,0 +1,54 @@
+interface Simple
+{
+	public void show();
+}
+
+class Up
+{
+	public void showHere()
+	{
+		System.out.println("Here is Up class");
+	}
+}
+
+class AclassUp extends Up implements Simple
+{
+	public void show()
+	{
+		System.out.println("Here is A class");
+	}
+}
+
+class BclassUp extends Up implements Simple
+{
+	public void show()
+	{
+		System.out.println("Here is B class");
+	}
+}
+public class BoundedTypeParam
+{	
+	public <T> void one(T one1)
+	{
+		((Up)one1).showHere();
+		
+	}
+	public <T> void two(T two2)
+	{
+		((Simple)two2).show();
+	}
+	public static void main(String[] args) 
+	{		
+		// TODO Auto-generated method stub	
+		
+		BoundedTypeParam A = new BoundedTypeParam();		
+		Up B = new Up();
+		AclassUp C = new AclassUp();
+		BclassUp D = new BclassUp();
+		
+		A.one(B);
+		A.two(C);
+		A.two(D);
+	
+	}
+}

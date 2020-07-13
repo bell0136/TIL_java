@@ -1,0 +1,50 @@
+class OrangeBox
+{	
+	void showBox()
+	{
+		System.out.println("fruit");
+	
+	}
+}
+class AppleBox extends OrangeBox
+{
+	
+	void showBox()
+	{
+		super.showBox();
+		System.out.println("red fruit");
+	}
+}
+class FruitBox <T>
+{
+	T item;
+	void store(T item)
+	{
+		this.item = item;
+	}
+	T showFruitBox()
+	{
+		return item;
+	}
+}
+
+public class IntroWildCard
+{	
+	public static void openFruitBox(FruitBox< ? extends OrangeBox> box)
+	{
+		OrangeBox fruit = box.showFruitBox();
+		fruit.showBox();
+	}
+	public static void main(String[] args) 
+	{		
+		// TODO Auto-generated method stub	
+		FruitBox<OrangeBox> fru1 = new FruitBox<OrangeBox>();
+		fru1.store(new OrangeBox());
+		FruitBox<AppleBox> fru2 = new FruitBox<AppleBox>();
+		fru2.store(new AppleBox());
+		
+		openFruitBox(fru1);
+		openFruitBox(fru2);
+		
+	}
+}

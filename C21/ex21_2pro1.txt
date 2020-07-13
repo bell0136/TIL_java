@@ -1,0 +1,49 @@
+class AAA
+{	
+	public String toString()
+	{
+		return "class AAA";
+	
+	}
+	public void showA()
+	{
+		System.out.println("Here is A class");
+	}
+}
+class BBB
+{
+	public String toString()
+	{
+		return "class BBB";
+	}
+}
+class Myclass
+{
+	int cntInit;
+	
+	public <T> void initPlus(T init1)
+	{
+		System.out.println(init1); 
+		//System.out.println은 object로 받기 떄문에 가능, toString마찬가지
+		((AAA)init1).showA(); 
+		//형변환해줘야됨
+		cntInit++;
+	}
+	public void showCnt()
+	{
+		System.out.println(cntInit);
+	}
+}
+
+public class ex21_2pro1
+{	
+	public static void main(String[] args) 
+	{		
+		// TODO Auto-generated method stub	
+		
+		AAA Aclass = new AAA();
+		Myclass cnt1 = new Myclass();
+		cnt1.<AAA>initPlus(Aclass);					
+		cnt1.showCnt();
+	}
+}

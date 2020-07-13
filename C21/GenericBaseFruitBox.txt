@@ -1,0 +1,55 @@
+class OrangeBox
+{
+	int sweet;
+	OrangeBox(int sweet)
+	{
+		this.sweet = sweet;
+	}
+	void showOrangeBox()
+	{
+		System.out.println("sweet is "+sweet);
+	
+	}
+}
+class AppleBox
+{
+	int weight;
+	AppleBox(int weight)
+	{
+		this.weight = weight;
+	}
+	void showAppleBox()
+	{
+		System.out.println("weight is "+weight);
+	}
+}
+class FruitBox <T>
+{
+	T item;
+	void store(T item)
+	{
+		this.item = item;
+	}
+	T showFruitBox()
+	{
+		return item;
+	}
+}
+
+public class GenericBaseFruitBox
+{	
+	public static void main(String[] args) 
+	{		
+		// TODO Auto-generated method stub	
+		
+		FruitBox<OrangeBox> fruit2 = new FruitBox<OrangeBox>();
+		fruit2.store(new OrangeBox(10));
+		OrangeBox orang2 = fruit2.showFruitBox();
+		orang2.showOrangeBox();
+				
+		FruitBox<AppleBox> fruit1 = new FruitBox<AppleBox>();
+		fruit1.store(new AppleBox(20));
+		AppleBox orang1 = fruit1.showFruitBox();
+		orang1.showAppleBox();		
+	}
+}

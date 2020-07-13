@@ -1,0 +1,24 @@
+class Array
+{
+	public <T>void showArray(T arr[])
+	{
+		int i = 0;
+	
+		for(i = 0 ; i < arr.length; i++)
+		{
+
+			System.out.println(arr[i]);
+		}
+	}
+}
+public class IntroGenericArray
+{	
+	
+	public static void main(String[] args) 
+	{		
+		// TODO Auto-generated method stub	
+		Array arr1 = new Array();
+		String[] arr2 = new String[] {"hello","i'm","java"};
+		arr1.showArray(arr2);
+	}
+}

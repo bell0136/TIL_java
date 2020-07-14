@@ -1,0 +1,62 @@
+import java.util.Iterator;
+import java.util.HashSet;
+class Person
+{
+	String name;
+	int age;
+	public Person(String name , int age)
+	{
+		this.name = name;
+		this.age = age;
+	}
+	public int hashCode()
+	{
+		return age%3;
+	}
+	public String toString()
+	{
+		return name+ " ("+age +")";
+	}
+	public boolean equals(Object obj)
+	{
+		Person numb1 = (Person)obj;
+		if(this.age == numb1.age)
+		{
+			if(name.compareTo(numb1.name)==0)
+			{
+				return true;
+			}
+			else 
+			{
+				return false;
+			}
+
+		}
+		else 
+		{
+			return false;
+		}
+	}
+	
+}
+public class ex22_3pro1
+{	
+	public static void main(String[] args) 
+	{		
+		// TODO Auto-generated method stub
+		HashSet <Person> list = new HashSet<Person>();
+		list.add(new Person("이진호",10));
+		list.add(new Person("이진호",20));		
+		list.add(new Person("이진호",20));
+		list.add(new Person("김명수",10));
+		list.add(new Person("김명호",10));
+		Iterator<Person> itr = list.iterator();
+	
+		System.out.println("인덱스 개수 :"+list.size());
+	
+		while(itr.hasNext())
+		{				
+			System.out.println(itr.next().toString());			
+		}
+	}
+}

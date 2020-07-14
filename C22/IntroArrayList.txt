@@ -1,0 +1,28 @@
+import java.util.ArrayList;
+public class IntroArrayList 
+{
+	
+	public static void main(String[] args) 
+	{		
+		// TODO Auto-generated method stub
+		
+		ArrayList<Integer> list =new <Integer> ArrayList();
+		list.add(new Integer(11));
+		list.add(new Integer(22));
+		list.add(new Integer(33));
+		
+		int i = 0;
+		for(i=0;i<list.size();i++)
+		{
+			System.out.println(list.get(i));
+		}
+		System.out.println();
+		list.remove(1);
+	
+		for(i=0;i<list.size();i++)
+		{
+			System.out.println(list.get(i));
+		}
+		
+	}
+}

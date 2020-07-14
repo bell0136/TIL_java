@@ -1,0 +1,25 @@
+import java.util.Iterator;
+import java.util.HashSet;
+public class SetInterfaceFeature
+{	
+	
+	public static void main(String[] args) 
+	{		
+		// TODO Auto-generated method stub
+		HashSet <String> list = new HashSet<String>();
+		list.add("first");
+		list.add("second");
+		list.add("third");
+		list.add("first");
+		Iterator<String> itr = list.iterator();
+	
+		System.out.println("인덱스 개수 :"+list.size());
+		String str;
+		while(itr.hasNext())
+		{			
+			str = itr.next(); 
+			System.out.println( str);			
+		}
+	
+	}
+}

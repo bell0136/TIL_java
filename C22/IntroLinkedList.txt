@@ -1,0 +1,33 @@
+import java.util.LinkedList;
+public class IntroLinkedList
+{	
+	
+	public static void main(String[] args) 
+	{		
+		// TODO Auto-generated method stub
+		
+		LinkedList<Integer> list =new LinkedList<Integer>();
+	
+		list.add(new Integer(10));
+		list.add(new Integer(20));
+		list.add(new Integer(30));
+		int i = 0;
+	
+		System.out.println("1차참조");
+		for( i = 0 ; i < list.size() ; i++ )
+		{
+			System.out.println(list.get(i));
+			
+		}
+		
+		list.remove(1);
+		System.out.println("");
+		System.out.println("2차참조");
+		for( i = 0 ; i < list.size() ; i++ )
+		{
+			System.out.println(list.get(i));
+			
+		}
+		
+	}
+}

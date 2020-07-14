@@ -1,0 +1,25 @@
+import java.util.Iterator;
+import java.util.TreeSet;
+
+public class SortTreeSet
+{	
+	public static void main(String[] args) 
+	{		
+		// TODO Auto-generated method stub
+		TreeSet <Integer> list = new TreeSet<Integer>();
+		list.add(new Integer(10));
+		list.add(new Integer(50));
+		list.add(new Integer(20));		
+		list.add(new Integer(30));
+	
+		list.add(new Integer(10));
+		Iterator<Integer> itr = list.iterator();
+	
+		System.out.println("인덱스 개수 :"+list.size());
+	
+		while(itr.hasNext())
+		{				
+			System.out.println(itr.next().toString());			
+		}
+	}
+}

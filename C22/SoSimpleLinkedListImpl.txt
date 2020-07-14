@@ -1,0 +1,34 @@
+class SimpleLinkedList<T>
+{
+	SimpleLinkedList<T> nextBox;
+	T item;
+	void store(T item)
+	{
+		this.item = item;		
+	}
+	T pull()
+	{
+		return item;
+	}
+}
+public class SoSimpleLinkedListImpl
+{	
+	
+	public static void main(String[] args) 
+	{		
+		// TODO Auto-generated method stub
+		SimpleLinkedList<String> head = new SimpleLinkedList<String>();
+		SimpleLinkedList<String> tail;
+		
+		head.store("hi i'm first");
+		head.nextBox = new SimpleLinkedList<String>();
+		head.nextBox.store("hi i'm Second");
+		head.nextBox.nextBox = new SimpleLinkedList<String>();
+		head.nextBox.nextBox.store("hi i'm third");
+		
+		tail = head.nextBox;
+		System.out.println(tail.pull());
+		System.out.println(tail.nextBox.pull());
+		
+	}
+}

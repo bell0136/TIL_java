@@ -1,0 +1,51 @@
+import java.util.Iterator;
+import java.util.HashSet;
+class Number
+{
+	int num;
+	public Number(int num)
+	{
+		this.num = num;
+	}
+	public int hashCode()
+	{
+		return num%3;
+	}
+	public String toString()
+	{
+		return String.valueOf(num);
+	}
+	public boolean equals(Object obj)
+	{
+		Number numb1 = (Number)obj;
+		if(this.num == numb1.num)
+		{
+			return true;
+		}
+		else 
+		{
+			return false;
+		}
+	}
+	
+}
+public class HashSetEqualityTwo
+{	
+	public static void main(String[] args) 
+	{		
+		// TODO Auto-generated method stub
+		HashSet <Number> list = new HashSet<Number>();
+		list.add(new Number(3));
+		list.add(new Number(3));
+		list.add(new Number(13));
+		list.add(new Number(10));
+		Iterator<Number> itr = list.iterator();
+	
+		System.out.println("인덱스 개수 :"+list.size());
+	
+		while(itr.hasNext())
+		{				
+			System.out.println(itr.next().num);			
+		}
+	}
+}

@@ -1,0 +1,28 @@
+import java.util.Iterator;
+import java.util.HashSet;
+public class UsefulIterator
+{	
+	
+	public static void main(String[] args) 
+	{		
+		// TODO Auto-generated method stub
+		HashSet list = new HashSet();
+		list.add(new String("first"));
+		list.add(new String("second"));
+		list.add(new String("third"));
+		Iterator<String> itr = list.iterator();
+	
+		while(itr.hasNext())
+		{
+			String str = itr.next(); 
+			if(str.compareTo("second") == 0)
+			{
+				itr.remove();
+			}
+		}
+		for(Object str : list)
+		{
+			System.out.println(str);
+		}
+	}
+}

@@ -1,0 +1,36 @@
+import java.util.*;
+class Person implements Comparator <String>
+{
+	String name;
+	
+	public int compare(String str1,String str2)
+	{
+		
+		return str1.length()-str2.length();
+	}
+	
+}
+public class IntroComparator
+{	
+	public static void main(String[] args) 
+	{		
+		// TODO Auto-generated method stub
+		TreeSet<String> list = new TreeSet<String>(new Person());
+		list.add("choi");
+		list.add("kim");
+		list.add("elsaelsa");		
+		list.add("elice");	
+		list.add("greendgreen");
+		Iterator<String> itr = list.iterator();
+	
+		System.out.println("인덱스 개수 :"+list.size());
+		
+		
+	
+		while(itr.hasNext()) //true이면 다음으로 넘어가기
+		{				
+			System.out.println(itr.next());		//object반환하고 메소드 호출 가능	
+		}
+		
+	}
+}

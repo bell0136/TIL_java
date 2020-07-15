@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.HashSet;
+import java.util.Iterator;
 interface MenuHandler
 {
 	public static final int INSERT = 1;
@@ -13,27 +15,46 @@ interface InsertHandler
 	public static final int UNIV = 2;
 	public static final int COMPANY = 3;
 }
-class PhoneInfo
+
+class PhoneInfo 
 {
 	String name;
 	String phoneNumber;
-	
+	int num;
 	
 	public PhoneInfo(String n,String number)
 	{
 		this.name = n;
 		this.phoneNumber = number;
-		
+		this.num = name.length();
 		
 	}
 	void showInfo()
 	{
 		System.out.println("입력한 정보 출력...");
 		System.out.println("name : "+name);
-		System.out.println("number : "+phoneNumber);
-		
+		System.out.println("number : "+phoneNumber);		
 	}
-	
+	public int hashCode()
+	{		
+		return num%3;
+	}
+	public boolean equals(Object obj)
+	{
+		PhoneInfo pI = (PhoneInfo)obj; 
+		if(this.name.compareTo(pI.name) == 0)
+		{
+			System.out.println("이미 저장된 데이터입니다.");
+			
+			return true;
+		}
+		else
+		{
+			System.out.println("데이터입력이 완료되었습니다.");
+			return false;
+		}
+	}
+
 }
 class PhoneUnivInfo extends PhoneInfo 
 {
@@ -46,12 +67,10 @@ class PhoneUnivInfo extends PhoneInfo
 		this.year = year;
 	}
 	void showInfo()
-	{
-		
+	{		
 		super.showInfo();
 		System.out.println("major : "+major);
-		System.out.println("year : "+year);
-		
+		System.out.println("year : "+year);		
 	}
 }
 class PhoneCompanyInfo extends PhoneInfo
@@ -84,20 +103,7 @@ class Manager implements InsertHandler
 	int year;
 	String company;
 	Scanner sc = new Scanner(System.in);
-	PhoneInfo [] human = new PhoneInfo[100]; //생성자 생성안됨
-	
-	int insert_i;
-
-
-	Manager()
-	{
-		int index = 0; 
-		for(index = 0; index <100; index++)
-		{
-			human[index] = new PhoneInfo(name,phone);
-			
-		}
-	}
+	HashSet<PhoneInfo> personList = new HashSet<PhoneInfo>();
 	
 	static int checkMenu(int cnt) throws MenuException
 	{
@@ -106,7 +112,7 @@ class Manager implements InsertHandler
 		sc.nextLine();
 		
 		System.out.println(choice);
-		if(choice > cnt ||choice < 1)
+		if(choice > cnt || choice < 1)
 		{
 			MenuException menu = new MenuException(choice);
 			throw menu;
@@ -127,7 +133,6 @@ class Manager implements InsertHandler
 		}
 		catch (MenuException e) 
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -136,12 +141,30 @@ class Manager implements InsertHandler
 			System.out.print("이름 :");
 			name = sc.nextLine();
 			System.out.print("번호 :");
-			phone = sc.nextLine();
+			phone = sc.nextLine();			
 			
-			human[insert_i] = new PhoneInfo(name,phone);
-			human[insert_i].showInfo();
-		
-			
+			if(personList.add(new PhoneInfo(name,phone))==false)				
+			{
+				Iterator <PhoneInfo> itr = personList.iterator();
+				
+				while(itr.hasNext())
+				{
+					if(itr.next().name.compareTo(this.name) == 0)
+					{
+						itr.remove();
+						personList.add(new PhoneInfo(name,phone));
+						break;
+					}
+					else
+					{
+						continue;
+					}
+				}
+			}
+			else
+			{
+				System.out.println("데이터입력이 완료되었습니다.");
+			}					
 		}
 		else if(ch_result == UNIV)
 		{
@@ -154,9 +177,29 @@ class Manager implements InsertHandler
 			System.out.print("학년 :");
 			year = sc.nextInt();
 			sc.nextLine();
-
-			human[insert_i] = new PhoneUnivInfo(name,phone,major,year);
-			human[insert_i].showInfo();
+			
+			if(personList.add(new PhoneUnivInfo(name,phone,major,year))==false)				
+			{
+				Iterator <PhoneInfo> itr = personList.iterator();			
+				while(itr.hasNext())
+				{
+					if(itr.next().name.compareTo(this.name) == 0)
+					{
+						itr.remove();
+						personList.add(new PhoneUnivInfo(name,phone,major,year));
+						System.out.println("중복된 데이터의 삭제가 완료되었습니다.");
+						break;
+					}
+					else
+					{
+						continue;
+					}
+				}
+			}
+			else
+			{
+				System.out.println("데이터입력이 완료되었습니다.");
+			}
 			
 		}
 		else if(ch_result == COMPANY)
@@ -168,34 +211,62 @@ class Manager implements InsertHandler
 			System.out.print("회사 :");
 			company = sc.nextLine();
 			
-			human[insert_i] = new PhoneCompanyInfo(name,phone,company);
-			human[insert_i].showInfo();
-		
+			if(personList.add(new PhoneCompanyInfo(name,phone,company))==false)				
+			{
+				Iterator <PhoneInfo> itr = personList.iterator();
+				
+				while(itr.hasNext())
+				{
+					if(itr.next().name.compareTo(this.name) == 0)
+					{
+						itr.remove();
+						personList.add(new PhoneCompanyInfo(name,phone,company));
+						System.out.println("중복된 데이터의 삭제가 완료되었습니다.");
+						break;
+					}
+					else
+					{
+						continue;
+					}
+				}
+			}
+			else
+			{
+				System.out.println("데이터입력이 완료되었습니다.");
+			}			
 		}
-		insert_i++;
 	}
 	
 	void Search()
 	{
+		Iterator <PhoneInfo> itr = personList.iterator();
+		while(itr.hasNext())
+		{
+			itr.next().showInfo();
+				
+		}
 		System.out.println("데이터검색을 시작합니다.");
 		System.out.printf("이름 : ");
-		String searchName = sc.nextLine();
-		
-		int search_i = 0;
+		String searchName = sc.nextLine();		
 		int check = 0;
-	//	System.out.println( human[search_i].name.compareTo(searchName));
 		
-		for(search_i = 0 ; search_i <= insert_i ;search_i++)
+		itr = personList.iterator();
+		while(itr.hasNext())
 		{
-			
-			System.out.println(searchName);
-			if(human[search_i].name.compareTo(searchName) == 0)
+			System.out.println("hello");	
+			PhoneInfo per1 = itr.next();			
+			if(per1.name.compareTo(searchName) == 0)
 			{
-				human[search_i].showInfo();
-				System.out.println("데이터 검색 완료");
+				System.out.println(searchName);
+				per1.showInfo();
 				check = 1;
+				System.out.println("데이터 검색 완료");				
 				break;
-			}			
+			}	
+			else 
+			{
+				continue;
+			}
 		}
 		if(check == 0)
 		{
@@ -205,22 +276,18 @@ class Manager implements InsertHandler
 	
 	void Delete()
 	{
+		Iterator <PhoneInfo> itr = personList.iterator();
 		System.out.println("데이터 삭제를 시작합니다.");
 		System.out.printf("이름 :"+" ");
 		String searchName = sc.nextLine();
-		int delete_i = 0;
 		int delete_check = 0;
-		for(delete_i = 0 ; delete_i <= insert_i ;delete_i++)
+		
+		while(itr.hasNext())
 		{
-			if( human[delete_i].name.compareTo(searchName) == 0)
+			System.out.println(searchName);
+			if(itr.next().name.compareTo(searchName) == 0)
 			{
-			
-				for( ; delete_i < insert_i; delete_i++)
-				{
-					human[delete_i] = null;
-					human[delete_i] = human[delete_i+1]; //배열이 담고 있는 값은 인스턴스 변수		
-					insert_i--;
-				}
+				itr.remove();
 				delete_check = 1;
 				System.out.println("삭제가 완료되었습니다.");
 				break;
@@ -230,22 +297,20 @@ class Manager implements InsertHandler
 				continue;
 			}
 		}
+		
 		if(delete_check == 0)
 		{
 			System.out.println("찾고 계신 이름이 없습니다.");
-		}
-		
-	}
+		}		
+	}	
 	
 }
 public class PhoneBook implements MenuHandler
 {
-
 	public static void main(String[] args)
 	{
 		Manager person = new Manager(); 
-		do{
-			
+		do{			
 			System.out.println("선택하세요...");
 			System.out.println("1.데이터 입력");			
 			System.out.println("2.데이터 검색");
@@ -283,10 +348,9 @@ public class PhoneBook implements MenuHandler
 			{
 				System.out.println("Finish");
 				break;
-			}
-			
-		} while(true);
-				
+			}			
+		} 
+		while(true);				
 	}
 
 }

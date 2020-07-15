@@ -1,0 +1,26 @@
+import java.util.HashMap;
+public class IntroHashMap
+{	
+	
+	public static void main(String[] args) 
+	{		
+		// TODO Auto-generated method stub
+		HashMap<Integer,String> list = new HashMap<Integer,String>();
+		list.put(new Integer(3),"choi");
+		list.put(5,"kim");
+		list.put(7,"elsaelsa");		
+		list.put(9,"elice");	
+		list.put(10,"greendgreen");
+		
+		
+		System.out.println("6학년 3반 3번"+list.get(3));
+		System.out.println("6학년 3반 5번"+list.get(5));
+		System.out.println("6학년 3반 7번"+list.get(7));
+		System.out.println("6학년 3반 9번"+list.get(9));
+		System.out.println("6학년 3반 10번"+list.get(10));
+		
+		list.remove(7);
+		
+		System.out.println("6학년 3반 7번"+list.get(7));
+	}
+}

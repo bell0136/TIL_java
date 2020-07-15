@@ -1,0 +1,55 @@
+import java.util.Iterator;
+import java.util.TreeSet;
+class Person implements Comparable <Person>
+{
+	String name;
+	
+	
+	Person(String name)
+	{
+		this.name = name;
+		
+	}
+	public int compareTo(Person per)
+	{
+		if(this.name.length() == per.name.length())
+		{
+			return 0;
+		}
+		else if (this.name.length() < per.name.length())
+		{
+			return -1;
+		}
+		else
+		{
+			return 1;
+		}
+	}
+	void showData()
+	{
+		System.out.println("이름 : "+name);
+	
+	}
+}
+public class ComparableMyName
+{	
+	public static void main(String[] args) 
+	{		
+		// TODO Auto-generated method stub
+		TreeSet <Person> list = new TreeSet<Person>();
+		list.add(new Person("choi"));
+		list.add(new Person("kim"));
+		list.add(new Person("elsaelsa"));		
+		list.add(new Person("elice"));	
+		list.add(new Person("greendgreen"));
+		Iterator<Person> itr = list.iterator();
+	
+		System.out.println("인덱스 개수 :"+list.size());
+	
+		while(itr.hasNext()) //true이면 다음으로 넘어가기
+		{				
+			itr.next().showData();		//object반환하고 메소드 호출 가능	
+		}
+		
+	}
+}

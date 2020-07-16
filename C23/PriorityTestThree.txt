@@ -1,0 +1,42 @@
+class StringThread extends Thread
+{
+	String message;
+	StringThread(String msg)
+	{
+		super();
+		this.message = msg;
+	}
+	public void run()
+	{
+		int i = 0;
+		for(i = 0 ; i < 2 ; i++)
+		{
+			System.out.println(message+"("+getPriority()+")");
+			
+			try
+			{
+				sleep(1);
+			}
+			catch (InterruptedException e)
+			{
+				e.printStackTrace();
+			}
+		}
+	}
+}
+public class PriorityTestThree
+{	
+	
+	public static void main(String[] args) 
+	{		
+		// TODO Auto-generated method stub
+		StringThread ad1 = new StringThread("first");
+		StringThread ad2 = new StringThread("second");
+		StringThread ad3 = new StringThread("third");
+		
+		ad1.start(); //꼭 스타트해줄것
+		ad2.start();
+		ad3.start();
+		
+	}
+}

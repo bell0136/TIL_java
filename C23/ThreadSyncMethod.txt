@@ -1,0 +1,74 @@
+class Calculator
+{
+	int num;
+	int addResult;
+	int minResult;
+	Calculator()
+	{
+		this.num = 0;
+	}
+	synchronized int addCal(int addN1,int addN2)
+	{		
+		addResult = addN1 + addN2;
+		num ++;
+		return addResult;
+	}
+	synchronized int minCal(int minN1,int minN2)
+	{	
+		minResult = minN1 - minN2;
+		num ++;		
+		return minResult;
+	}
+}
+
+class AddThread extends Thread
+{
+	Calculator cal;
+	AddThread(Calculator cal)
+	{
+		this.cal=cal;
+	}
+	public void run()
+	{
+		System.out.println("2 + 4 = "+cal.addCal(2,4));
+		System.out.println("3 + 1 = "+cal.addCal(3,1));
+		
+	}
+}
+class MinThread extends Thread
+{
+	Calculator cal;
+	MinThread(Calculator cal)
+	{
+		this.cal=cal;
+	}
+	public void run()
+	{
+		System.out.println("10 - 4 = "+cal.minCal(10,4));
+		System.out.println("6 - 1 = "+cal.minCal(6,1));
+	}
+}
+public class ThreadSyncMethod
+{	
+	public static void main(String[] args) 
+	{		
+		// TODO Auto-generated method stub
+		Calculator sum1 = new Calculator();
+		AddThread ad1 = new AddThread(sum1);
+		MinThread ad2 = new MinThread(sum1);
+		ad1.start(); //꼭 스타트해줄것
+		ad2.start();
+		try
+		{
+			ad1.join();
+			ad2.join();
+		}
+		catch(InterruptedException e)
+		{
+			e.printStackTrace();
+		}
+		
+		System.out.println("총 연산 횟수 : "+sum1.num);
+	
+	}
+}

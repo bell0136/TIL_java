@@ -1,0 +1,53 @@
+class SumThread extends Thread
+{
+	int num;
+	int start;
+	int end;
+	SumThread(int s,int e)
+	{
+		super();	
+		this.start = s;
+		this.end = e;
+	}
+	public void run()
+	{
+		int i = 0;
+		for(i = this.start ; i <= this.end ; i++)
+		{
+			addNum(i);
+		}
+	}
+	int addNum(int addN)
+	{
+		num += addN;
+		return num;
+	}
+	int getNum()
+	{
+		return num;
+	}
+}
+public class ex23_pro1
+{	
+	
+	public static void main(String[] args) 
+	{		
+		// TODO Auto-generated method stub
+		SumThread ad1 = new SumThread(1,50);
+		SumThread ad2 = new SumThread(51,100);
+		
+		ad1.start(); //꼭 스타트해줄것
+		ad2.start();
+		try
+		{
+			ad1.join();
+			ad2.join();
+		}
+		catch(InterruptedException e)
+		{
+			e.printStackTrace();
+		}
+		
+		System.out.println("더한 값 : "+(ad1.getNum()+ad2.getNum()));
+	}
+}

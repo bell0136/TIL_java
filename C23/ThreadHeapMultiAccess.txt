@@ -1,0 +1,68 @@
+class Sum
+{
+	int num;
+	Sum()
+	{
+		this.num = 0;
+	}
+	void addNum(int addN)
+	{
+		
+		num += addN;
+		
+	}
+	int getNum()
+	{
+		return num;
+	}
+}
+class SumThread extends Thread
+{
+	int start;
+	int end;
+	Sum sumInst;
+	SumThread(Sum sum, int s,int e)
+	{
+		super();	
+		this.start = s;
+		this.end = e;
+		this.sumInst=sum;
+	}
+	int show()
+	{
+		return sumInst.getNum();
+	}
+	public void run()
+	{
+		int i = 0;
+		for(i = this.start ; i <= this.end ; i++)
+		{
+			sumInst.addNum(i);
+		}
+	}
+}
+public class ThreadHeapMultiAccess
+{	
+	public static void main(String[] args) 
+	{		
+		// TODO Auto-generated method stub
+		Sum sum1 = new Sum();
+		SumThread ad1 = new SumThread(sum1,1,50);
+		SumThread ad2 = new SumThread(sum1,51,100);
+		
+		ad1.start(); //꼭 스타트해줄것
+		ad2.start();
+		try
+		{
+			ad1.join();
+			ad2.join();
+		}
+		catch(InterruptedException e)
+		{
+			e.printStackTrace();
+		}
+		
+		System.out.println("더한 값 : "+(ad1.show()));
+	
+	}
+}

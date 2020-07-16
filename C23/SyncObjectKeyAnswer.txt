@@ -1,0 +1,86 @@
+class AddNum
+{
+	int num1;
+	int num2;
+	Object key1 = new Object();
+	Object key2 = new Object();
+	AddNum()
+	{
+		this.num1 = 0;
+		this.num2 = 0;
+		
+	}
+	void addOneNum1()
+	{	
+		synchronized(key1)
+		{
+			num1 += 1;	
+		}	
+	}
+	void addTwoNum1()
+	{	
+		synchronized(key1)
+		{
+			num1 += 2;	
+		}
+	}
+	void addOneNum2()
+	{
+		synchronized(key2)
+		{
+			num2 += 1;	
+		}
+	}
+	void addTwoNum2()
+	{	
+		synchronized(key2)
+		{
+			num2 += 2;		
+		}
+	}
+	void showNum()
+	{
+		System.out.println("num1 is "+num1);
+		System.out.println("num2 is "+num2);
+		
+	}
+}
+
+class AddThread extends Thread
+{
+	AddNum calAdd;
+	AddThread(AddNum calAdd)
+	{
+		this.calAdd=calAdd;
+	}
+	public void run()
+	{
+		calAdd.addOneNum1();
+		calAdd.addTwoNum1();
+		calAdd.addOneNum2();
+		calAdd.addTwoNum2();
+	}
+}
+
+public class SyncObjectKeyAnswer
+{	
+	public static void main(String[] args) 
+	{		
+		// TODO Auto-generated method stub
+		AddNum sum1 = new AddNum();
+		AddThread ad1 = new AddThread(sum1);
+		AddThread ad2 = new AddThread(sum1);
+		ad1.start(); //꼭 스타트해줄것
+		ad2.start();
+		try
+		{
+			ad1.join();
+			ad2.join();
+		}
+		catch(InterruptedException e)
+		{
+			e.printStackTrace();
+		}
+		sum1.showNum();
+	}
+}

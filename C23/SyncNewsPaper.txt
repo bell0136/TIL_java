@@ -1,0 +1,91 @@
+class NewsPaper
+{
+	String news;	
+	boolean sendNews = false;
+	void setNews(String news)
+	{	
+		synchronized(this)
+		{
+			sendNews = true;
+			notifyAll();
+			this.news = news;
+		}
+	}
+	String getNews()
+	{	
+		synchronized(this)
+		{	
+			if(sendNews == false)
+			{
+				try 
+				{
+					wait();
+				}
+				catch (InterruptedException e) 
+				{
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}			
+		}
+		return news;
+	}	
+}
+
+class NewsWriter extends Thread
+{
+	NewsPaper news;
+	
+	NewsWriter(NewsPaper news)
+	{
+		this.news = news;
+	}
+	public void run()
+	{		
+		news.setNews("자바의 열기가 드겁습니다.");		
+	}
+}
+
+class NewsReader extends Thread
+{
+	NewsPaper news;
+	int num;
+	NewsReader(NewsPaper news,int num)
+	{
+		this.news = news;
+		this.num=num;
+	}
+	public void run()
+	{		
+		
+		System.out.println("num is "+ num+" " +news.getNews());			
+	}
+}
+
+
+public class SyncNewsPaper
+{	
+	public static void main(String[] args) 
+	{		
+		// TODO Auto-generated method stub
+		NewsPaper sum1 = new NewsPaper();
+		NewsWriter ad1 = new NewsWriter(sum1);		
+		NewsReader ad2 = new NewsReader(sum1,1);
+		NewsReader ad3 = new NewsReader(sum1,2);		
+		try
+		{
+			ad2.start();
+			
+			Thread.sleep(1000);
+			ad1.start(); //꼭 스타트해줄것
+			ad3.start(); 
+			
+			ad1.join();
+			ad2.join();
+		}
+		catch(InterruptedException e)
+		{
+			e.printStackTrace();
+		}		
+	}
+}

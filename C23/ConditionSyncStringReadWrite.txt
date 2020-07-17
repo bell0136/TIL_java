@@ -1,0 +1,120 @@
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.locks.Condition;
+import java.util.Scanner;
+class News
+{
+	String newString;
+	String passString;
+	String restr = null;
+	
+	boolean Thnum = false;
+	private final ReentrantLock key1 = new ReentrantLock();
+	private final Condition readCond = key1.newCondition();
+	private final Condition writeCond = key1.newCondition();
+	
+	void writing(String passString)
+	{
+		key1.lock();
+		try
+		{
+			if(Thnum == true)
+			{			
+				writeCond.await();
+			}
+			newString = passString;		
+			Thnum = true;
+			readCond.signal();
+		}
+		catch(InterruptedException e)
+		{
+			e.printStackTrace();
+		}
+
+		finally
+		{
+			key1.unlock();
+		}		
+	}	
+	
+	String reading()
+	{
+		key1.lock();
+		try
+		{		
+			if(Thnum == false)		
+			{				
+				readCond.await();				
+			}
+			restr = newString;
+			Thnum = false;
+			writeCond.signal();	
+		}
+		catch (InterruptedException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally
+		{
+			key1.unlock();
+		}		
+		return restr;
+	}	
+	
+
+}
+
+class WriteThread extends Thread
+{
+	News news;
+	WriteThread (News news)
+	{
+		this.news = news;
+	}
+	public void run()
+	{
+		int i = 0;
+		Scanner sc =new Scanner(System.in);		
+		String name;	
+		for( i = 0 ; i < 5 ; i++ )
+		{
+			name = sc.nextLine();
+			news.writing(name);
+		}	
+	}	
+}
+
+class ReadThread extends Thread
+{
+	News news;
+	ReadThread(News news)
+	{
+		this.news =  news;		
+	}
+	public void run()
+	{
+		int i = 0;
+		
+		for( i = 0 ; i < 5 ; i++ )
+		{
+			System.out.println("문장 " + news.reading());
+		}	
+	}
+}
+
+public class ConditionSyncStringReadWrite
+{	
+	public static void main(String[] args) 
+	{		
+		
+		// TODO Auto-generated method stub
+		News sum1 = new News();
+		WriteThread ad1 = new WriteThread(sum1);
+		ReadThread ad2 = new ReadThread(sum1);			
+		
+		System.out.println("입출력 쓰레드 실행");		
+		ad1.start(); //꼭 스타트해줄것
+		ad2.start();	
+					
+	}
+}

@@ -1,0 +1,99 @@
+import java.util.Scanner;
+class FiveNumAdd 
+{
+		
+	boolean sendNews = false;
+	int num;
+	int sum;
+	int i;
+	int cloneArr[];
+	int checkNum;
+	FiveNumAdd(int arr[])
+	{	
+		cloneArr =  new int[5];
+		for(i=0;i<5;i++)
+		{
+			cloneArr[i] = arr[i];
+		}
+	}
+	void addNum()
+	{	
+		for( i = 0 ; i < 5 ; i++ )
+		{
+			sum += cloneArr[i];
+		}	
+		checkNum = 1;
+		synchronized(this)
+		{
+			if(checkNum == 1)
+			{			
+				notifyAll();
+			}	
+		}
+	}	
+	int getSum()
+	{	
+		if(checkNum==0)
+		{
+			synchronized(this)
+			{
+				try
+				{				
+					wait();				
+				}
+				catch(InterruptedException e)
+				{
+					e.printStackTrace();
+				}			
+			}		
+		}
+		return sum;
+	}	
+}
+class AddThread extends Thread
+{
+	FiveNumAdd addNumClass;
+	AddThread(FiveNumAdd addNumClass)
+	{
+		this.addNumClass = addNumClass;
+	}
+	public void run()
+	{
+		addNumClass.addNum();
+		System.out.println("sum is "+addNumClass.getSum());
+	}
+	
+}
+public class ex23_2pro1
+{	
+	public static void main(String[] args) 
+	{		
+		// TODO Auto-generated method stub
+		
+		
+		Scanner sc = new Scanner(System.in);;
+		int [] arr= new int[5];
+				
+	
+		System.out.println("5개의 정수를 입력하시오");
+		int i = 0;
+		for(i=0;i<5;i++)
+		{
+			arr[i] = sc.nextInt();
+		}
+		
+		FiveNumAdd numAdd = new FiveNumAdd(arr);
+		AddThread addTh = new AddThread(numAdd);
+		
+		try
+		{
+			addTh.start();	
+			addTh.join();			
+		}
+		catch(InterruptedException e)
+		{
+			e.printStackTrace();
+		}	
+		System.out.println("Finish");
+	}
+}

@@ -1,0 +1,113 @@
+import java.util.concurrent.locks.ReentrantLock;
+class AddNum
+{
+	int num1;
+	int num2;
+	
+	private final ReentrantLock key1 = new ReentrantLock();
+	private final ReentrantLock key2 = new ReentrantLock();
+	
+	AddNum()
+	{
+		this.num1 = 0;
+		this.num2 = 0;		
+	}
+	void addOneNum1()
+	{	
+		key1.lock();
+		
+		try
+		{			
+			num1 += 1;	
+		}	
+		finally
+		{
+			key1.unlock();
+		}
+	}
+	void addTwoNum1()
+	{	
+		key1.lock();
+		
+		try
+		{
+			num1 += 2;	
+		}	
+		finally
+		{
+			key1.unlock();
+		}
+		
+	}
+	void addOneNum2()
+	{
+		key2.lock();
+		try
+		{
+			num2 += 1;
+		}	
+		finally
+		{
+			key2.unlock();
+		}
+		
+	}
+	void addTwoNum2()
+	{	
+		key2.lock();
+		try
+		{
+			num2 += 2;	
+		}	
+		finally
+		{
+			key2.unlock();
+		}
+	}
+	void showNum()
+	{
+		System.out.println("num1 is "+num1);
+		System.out.println("num2 is "+num2);		
+	}
+	
+	
+}
+
+class AddThread extends Thread
+{
+	AddNum calAdd;
+	AddThread(AddNum calAdd)
+	{
+		this.calAdd = calAdd;
+	}
+	public void run()
+	{
+		calAdd.addOneNum1();
+		calAdd.addTwoNum1();
+		calAdd.addOneNum2();
+		calAdd.addTwoNum2();	
+	}
+}
+
+public class UseReentrantLock
+{	
+	public static void main(String[] args) 
+	{		
+		// TODO Auto-generated method stub
+		AddNum sum1 = new AddNum();
+		AddThread ad1 = new AddThread(sum1);
+		AddThread ad2 = new AddThread(sum1);
+		ad1.start(); //꼭 스타트해줄것
+		ad2.start();			
+		try
+		{
+			ad1.join();
+			ad2.join();			
+		}
+		catch(InterruptedException e)
+		{
+			e.printStackTrace();
+		}		
+		sum1.showNum();				
+	}
+}

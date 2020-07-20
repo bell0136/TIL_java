@@ -1,0 +1,26 @@
+import java.io.*;
+
+public class DataFilterStream
+{	
+	public static void main(String[] args) throws IOException 
+	{		
+		// TODO Auto-generated method stub
+	
+		OutputStream out = new FileOutputStream("hi.txt");
+		DataOutputStream dOut = new DataOutputStream(out);
+		
+		dOut.writeInt(275);
+		dOut.writeDouble(32.95);
+		dOut.close();
+		
+		InputStream in = new FileInputStream("hi.txt");
+		DataInputStream dIn = new DataInputStream(in);
+		int dIn1 = dIn.readInt();
+		double dIn2 = dIn.readDouble();
+		
+		dIn.close();
+		System.out.println(dIn1);
+		System.out.println(dIn2);
+		//InputStream OutputStream 같게
+		}
+}

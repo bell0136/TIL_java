@@ -1,0 +1,31 @@
+import java.io.*;
+
+public class BufferFileCopy
+{	
+	public static void main(String[] args) throws IOException 
+	{		
+		// TODO Auto-generated method stub
+		InputStream in = new FileInputStream("hi.txt");	//상속이니까 자료형이 달라도 됨	
+		OutputStream out = new FileOutputStream("bye.txt");
+		
+		int copy_index = 0;
+		int readLen = 0;
+		byte b[] = new byte[10];
+		
+		while(true)
+		{
+			readLen = in.read(b);
+			if(readLen == -1)
+			{
+				break;
+			}
+			out.write(b);
+			
+			copy_index++;
+		}
+		System.out.println("바이트 크기 "+copy_index);
+		
+		in.close();
+		out.close();
+	}
+}

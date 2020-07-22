@@ -1,0 +1,40 @@
+import java.io.*;
+class DataBufferedFilterPerformance
+{
+	public static void performance(DataOutputStream out) throws IOException
+	{
+	
+		long startTime = System.currentTimeMillis();
+		for(int i = 0 ; i < 100 ; i++)
+		{
+			for(int j = 0; j < 100; j++)
+			{
+				out.writeInt(2);
+			}
+		}
+		out.flush();
+		
+		long endTime = System.currentTimeMillis();
+		System.out.println("경과시간 "+(endTime - startTime));
+		
+	}
+	public static void main(String args[]) throws IOException
+	{
+	
+		OutputStream out = new FileOutputStream("hi.txt");		
+		DataOutputStream dOut = new DataOutputStream(out);
+		
+		performance(dOut);
+		
+		dOut.close();
+		
+		OutputStream out1 = new FileOutputStream("bye.txt");	
+		BufferedOutputStream bOut1 = new BufferedOutputStream(out1,1024*10);//10KB
+		DataOutputStream dOut1 = new DataOutputStream(bOut1);
+		performance(dOut1);
+		
+		dOut1.close();
+	}
+	
+}
+

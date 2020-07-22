@@ -1,0 +1,35 @@
+import java.io.*;
+
+public class RandomFileReadWrite
+{	
+	public static void main(String[] args) throws IOException, ClassNotFoundException 
+	{		
+		// TODO Auto-generated method stub
+		RandomAccessFile ra = new RandomAccessFile("println.txt","rw");
+		System.out.println("write____");
+		System.out.println("here is "+ra.getFilePointer());
+		
+		ra.writeInt(100);
+		ra.writeInt(200);
+		ra.writeInt(300);		
+		System.out.println("int here is "+ra.getFilePointer());
+		
+		ra.writeDouble(1.35);
+		ra.writeDouble(2.52);
+		ra.writeDouble(3.97);
+		System.out.println("double here is "+ra.getFilePointer());
+		
+		System.out.println("read____");
+		ra.seek(0);
+		System.out.println("double here is "+ra.getFilePointer());
+		System.out.println(ra.readInt());
+		System.out.println(ra.readInt());
+		System.out.println(ra.readInt());
+		System.out.println("double here is "+ra.getFilePointer());
+		System.out.println(ra.readDouble());
+		System.out.println(ra.readDouble());
+		System.out.println(ra.readDouble());
+		System.out.println("double here is "+ra.getFilePointer());
+		ra.close();
+	}
+}

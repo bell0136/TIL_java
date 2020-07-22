@@ -1,0 +1,18 @@
+import java.io.*;
+
+public class FileWriterStream
+{	
+	public static void main(String[] args) throws IOException 
+	{		
+		// TODO Auto-generated method stub
+		char aa = 'A';
+		char ab = 'B';
+		
+		Writer out1 = new FileWriter("println.txt");
+		out1.write(aa);
+		out1.write(ab);
+		out1.close();	
+	}
+}
+
+

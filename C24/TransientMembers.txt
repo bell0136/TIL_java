@@ -1,0 +1,46 @@
+import java.io.*;
+
+class PersonInfo implements Serializable
+{
+	String name;
+	transient String sInfo;
+	int age;
+	transient int sNum;
+	PersonInfo(String name,String sInfo,int age,int sNum)
+	{
+		this.name = name;
+		this.sInfo = sInfo;
+		this.age = age;
+		this.sNum = sNum;
+	}
+	void showPerson()
+	{
+		System.out.println("name is "+this.name);
+		System.out.println("sInfo is "+this.sInfo);
+		System.out.println("age is "+this.age);
+		System.out.println("sNum is "+this.sNum);
+		
+	}	
+}
+
+
+public class TransientMembers
+{	
+	public static void main(String[] args) throws IOException, ClassNotFoundException 
+	{		
+		// TODO Auto-generated method stub
+	
+		ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("println.txt"));
+		PersonInfo per = new PersonInfo("giledong","molocule",21,3);
+		per.showPerson();
+		out.writeObject(per);		
+		out.close();
+		
+		ObjectInputStream in = new ObjectInputStream(new FileInputStream("println.txt"));
+		PersonInfo c1 = (PersonInfo)in.readObject();
+	
+		in.close();
+		
+		c1.showPerson();		
+	}
+}

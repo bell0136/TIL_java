@@ -1,0 +1,44 @@
+import java.io.*;
+
+class Circle implements Serializable
+{
+	int x;
+	int y;
+	double rad;
+	Circle(int x,int y, double rad)
+	{
+		this.x = x;
+		this.y = y;
+		this.rad = rad;		
+	}
+	void showCircle()
+	{
+		System.out.printf("x좌표 y좌표 [%d %d]\n",x,y );
+		System.out.println("반지름 : "+rad);
+	}
+}
+public class ObjectSerializable
+{	
+	public static void main(String[] args) throws IOException, ClassNotFoundException 
+	{		
+		// TODO Auto-generated method stub
+	
+		ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("println.txt"));
+		out.writeObject(new Circle(1,1,2.4));
+		out.writeObject(new Circle(2,2,4.8));
+		out.writeObject(new String("I am Java"));
+		out.close();
+		
+		ObjectInputStream in = new ObjectInputStream(new FileInputStream("println.txt"));
+		Circle c1 = (Circle)in.readObject();
+		Circle c2 = (Circle)in.readObject();
+		String str = (String)in.readObject();
+		
+		c1.showCircle();
+		c2.showCircle();
+		System.out.println(str);
+		
+		in.close();
+		
+	}
+}

@@ -1,0 +1,27 @@
+import java.io.*;
+class MyInfo
+{
+	String myInfo;
+	MyInfo(String myInfo)
+	{
+		this.myInfo = myInfo;
+	}
+	public String toString()
+	{
+		return myInfo;
+	}
+}
+public class ex24_1pro1 
+{	
+	public static void main(String[] args) throws IOException 
+	{		
+		// TODO Auto-generated method stub
+		OutputStream out1 = new FileOutputStream("println.txt");
+		MyInfo my = new MyInfo("나는 자바입니다.");
+		
+		System.out.println("여기는 24단원입니다.");
+		System.out.println(my);
+		System.out.printf("나이는 %d살 입니다.",22);
+		
+	}
+}

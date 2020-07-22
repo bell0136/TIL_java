@@ -1,0 +1,20 @@
+import java.io.*;
+
+public class FileReaderStream
+{	
+	public static void main(String[] args) throws IOException 
+	{		
+		// TODO Auto-generated method stub
+	
+		char aa[] = new char[5];
+		Reader in = new FileReader("println.txt");
+		int readC; 
+		int i = 0;
+		readC= in.read(aa,0,aa.length);
+		for(i = 0 ; i < readC ; i++)
+		{
+			System.out.println(aa[i]);
+		}
+		in.close();	
+	}
+}

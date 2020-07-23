@@ -1,0 +1,21 @@
+import java.awt.*;
+
+public class FirstAwt
+{	
+	public static void main(String[] args) 
+	{		
+		// TODO Auto-generated method stub
+		Frame fra = new Frame("first");
+		fra.setBounds(120,120,400,100);
+		fra.setLayout(new FlowLayout());
+		
+	
+		Button but1 = new Button("yes");
+		Button but2 = new Button("no");
+		Button but3 = new Button("think");
+		fra.add(but1);
+		fra.add(but2);
+		fra.add(but3);
+		fra.setVisible(true);
+	}
+}

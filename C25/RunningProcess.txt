@@ -1,0 +1,20 @@
+import java.io.*;
+
+public class RunningProcess
+{	
+	public static void main(String[] args) throws IOException, InterruptedException
+	{		
+		// TODO Auto-generated method stub
+		Process proc = Runtime.getRuntime().exec("java ExceptionHandleUseIf");
+		proc.waitFor();
+		
+		if(proc.exitValue()==0)
+		{
+			System.out.println("정상 종료");
+		}
+		else
+		{
+			System.out.println("비정상 종료");
+		}
+	}
+}

@@ -1,0 +1,28 @@
+import java.io.*;
+class ByteBufferedFileCopy
+{
+	public static void main(String args[]) throws IOException
+	{
+		InputStream in = new FileInputStream("hi.txt");
+		OutputStream  out = new FileOutputStream("bye.txt");
+		BufferedInputStream bufIn = new BufferedInputStream(in);
+		BufferedOutputStream bufOut = new BufferedOutputStream(out);
+		int copy_index = 0;
+		int data = 0;
+		while(true)
+		{
+			data = in.read();
+			if(data == -1)
+			{
+				break;
+			}
+			out.write(data);
+			copy_index++;
+		}
+		bufIn.close();//꼭 쓰자
+		bufOut.close();//꼭 쓰자
+		System.out.println("copy index is "+copy_index);
+	}
+	
+}
+

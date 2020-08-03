@@ -1,0 +1,29 @@
+import java.io.*;
+class ex24_3pro1
+{
+	
+	public static void main(String args[]) throws IOException
+	{
+		FileWriter Fout = new FileWriter("hi.txt");
+		PrintWriter out = new PrintWriter(new BufferedWriter(Fout));
+		
+		out.printf("내 나이는 %d살\n",22);
+		out.print("난 자바를 좋아하지!");
+		out.println("");
+		
+		out.close();
+		String str;
+		BufferedReader Bin = new BufferedReader(new FileReader("hi.txt"));
+		while(true)
+		{
+			str = Bin.readLine();		
+			if(str == null)
+			{
+				break;
+			}
+			System.out.println(str);
+		}
+		Bin.close();
+	}
+	
+}

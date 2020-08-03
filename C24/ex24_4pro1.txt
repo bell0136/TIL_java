@@ -1,0 +1,38 @@
+import java.io.*;
+class ex24_4pro1
+{
+	
+	public static void main(String args[]) throws IOException
+	{
+		RandomAccessFile ra = new RandomAccessFile("hi.txt","rw");
+		System.out.println("write____");
+		ra.writeInt(100);
+		ra.writeInt(200);
+		ra.writeInt(300);	
+		
+		ra.writeDouble(1.35);
+		ra.writeDouble(2.52);
+		ra.writeDouble(3.97);		
+		
+		RandomAccessFile raf = new RandomAccessFile("hi.txt","r");
+		System.out.println("read____");
+		raf.seek(0);
+		System.out.println(raf.readInt());
+		System.out.println(raf.readInt());
+		System.out.println(raf.readInt());
+		
+		raf.seek(raf.length()-21);
+		System.out.println(raf.getFilePointer());
+		System.out.println(raf.readDouble());
+		raf.seek(raf.length()-29);	
+		System.out.println(raf.getFilePointer());
+		System.out.println(raf.readDouble());
+		raf.seek(raf.length()-37);
+		System.out.println(raf.getFilePointer());
+		System.out.println(raf.readDouble());
+		ra.close();
+		raf.close();
+	}
+	
+}
+

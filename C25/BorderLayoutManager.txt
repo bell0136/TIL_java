@@ -1,0 +1,24 @@
+import java.awt.*;
+import javax.swing.*;
+
+public class BorderLayoutManager
+{	
+	public static void main(String[] args) 
+	{		
+		// TODO Auto-generated method stub
+		JFrame fra = new JFrame();
+		fra.setBounds(120,120,400,100);
+		fra.setLayout(new BorderLayout());		
+
+		fra.add(new JButton("north"),BorderLayout.NORTH);
+		fra.add(new JButton("south"),BorderLayout.SOUTH);
+		fra.add(new JButton("west"),BorderLayout.WEST);
+		fra.add(new JButton("east"),BorderLayout.EAST);
+		fra.add(new JButton("center"),BorderLayout.CENTER);	
+		
+		fra.setVisible(true);
+				
+	}
+}
+
+

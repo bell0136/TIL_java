@@ -1,0 +1,33 @@
+import java.io.*;
+class FileMove
+{
+	
+	public static void main(String args[]) throws IOException
+	{
+		File myFile = new File("c:\\myJava\\myFile.txt");
+		if(myFile.exists() == false)
+		{
+			System.out.println("file open error");
+			return;
+		}
+		else
+		{
+			System.out.println("file open");
+		}
+		File yourFile = new File("c:\\yourjava");
+		yourFile.mkdir();
+		File ourFile = new File(yourFile,"my.txt");
+		myFile.renameTo(ourFile);
+		if(ourFile.exists() == false)
+		{
+			System.out.println("file2 open error");
+			return;
+		}
+		else
+		{
+			System.out.println("file2 open");
+		}
+	}
+	
+}
+

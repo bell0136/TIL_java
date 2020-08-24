@@ -1,0 +1,40 @@
+import java.awt.*;
+import javax.swing.*;
+
+public class FlowLayoutManager
+{	
+	public static void main(String[] args) 
+	{		
+		// TODO Auto-generated method stub
+		JFrame fra = new JFrame();
+		fra.setBounds(120,120,400,100);
+		fra.setLayout(new FlowLayout());
+		
+		
+
+		fra.add(new JButton("yes"));
+		fra.add(new JButton("no"));
+		fra.add(new JButton("think"));
+		
+		fra.add(new LargeButton("Hi!"));
+		fra.add(new LargeButton("JAVA"));
+		fra.add(new LargeButton("GOOD"));
+		fra.setVisible(true);
+		
+		
+	}
+}
+
+class LargeButton extends JButton
+{
+	public LargeButton(String str)
+	{
+		super(str);
+	}
+	public Dimension getPreferredSize()
+	{
+		Dimension LButton = new Dimension(super.getPreferredSize().width+30,super.getPreferredSize().height+15);
+		return LButton;
+	}
+	
+}

@@ -1,0 +1,24 @@
+import java.io.*;
+class ListFileDirectorInfo
+{
+	
+	public static void main(String args[]) throws IOException
+	{
+		File myFile = new File("C:"+File.separator+"myJava");
+		File[] fList = myFile.listFiles();
+		int i = 0;	
+		for(i=0;i<fList.length;i++)
+		{
+			System.out.println(fList[i].getName());
+			if(fList[i].isDirectory())
+			{
+				System.out.println("\t \t DIR");
+			}			
+			else
+			{
+				System.out.println("\t \t FILE");
+			}
+		}
+	}
+}
+

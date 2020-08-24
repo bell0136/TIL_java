@@ -1,0 +1,14 @@
+import java.io.*;
+class RelativePath
+{
+	
+	public static void main(String args[]) throws IOException
+	{
+		File myFile = new File("AAA");
+		System.out.println(myFile.getAbsolutePath());
+		File yourFile = new File("AAA"+File.separator+"BBB");
+		System.out.println(yourFile.getAbsolutePath());
+	}
+	
+}
+

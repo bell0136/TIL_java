@@ -1,0 +1,28 @@
+import javax.swing.*;
+import java.awt.event.*;
+class MouseMotionHandler implements MouseMotionListener
+{
+	public void mouseDragged(MouseEvent e)
+	{
+		System.out.printf("Drag [%d %d]\n",e.getX(),e.getY());
+	}
+	public void mouseMoved(MouseEvent e)
+	{
+		System.out.printf("Move [%d %d]\n",e.getX(),e.getY());
+	}
+	
+}
+public class MouseMotionEvent
+{	
+	public static void main(String[] args) 
+	{		
+		// TODO Auto-generated method stub
+		JFrame fra1 = new JFrame("Multi Layout Manager");
+		fra1.setBounds(120,120,400,100);
+		fra1.addMouseMotionListener(new MouseMotionHandler());		
+		fra1.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);		
+		fra1.setVisible(true);				
+	}
+}
+
+

@@ -1,0 +1,30 @@
+import javax.swing.*;
+
+public class SetDefaultCloseOperation
+{	
+	public static void main(String[] args) 
+	{		
+		// TODO Auto-generated method stub
+		JFrame fra1 = new JFrame("Multi Layout Manager");
+		JFrame fra2 = new JFrame("Multi Layout Manager");
+		fra1.setBounds(120,120,400,100);
+		
+		fra2.setBounds(120,120,400,100);
+	
+		JButton but1 = new JButton("ONE");		
+		fra1.add(but1);
+		
+		JButton but2 = new JButton("TWO");		
+		fra2.add(but2);
+		
+		fra1.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+		fra2.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+		
+		fra1.setVisible(true);
+		fra2.setVisible(true);
+
+				
+	}
+}
+
+

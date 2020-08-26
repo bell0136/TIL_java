@@ -1,0 +1,38 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+class ActionEventHandler implements ActionListener
+{
+	public void actionPerformed(ActionEvent e)
+	{
+		System.out.println(e.getActionCommand());
+	}
+	
+	
+}
+public class JButtonActionEvent
+{	
+	public static void main(String[] args) 
+	{		
+		// TODO Auto-generated method stub
+		JFrame fra = new JFrame("Multi Layout Manager");
+		fra.setBounds(120,120,400,100);
+		fra.setLayout(new FlowLayout());		
+
+		ActionListener actionHandler = new ActionEventHandler();
+		JButton but1 = new JButton("ONE");
+		but1.addActionListener(actionHandler);
+		fra.add(but1);
+		
+		JButton but2 = new JButton("TWO");
+		but2.addActionListener(actionHandler);
+		fra.add(but2);
+		
+		but1.setEnabled(false);
+		fra.setVisible(true);
+				
+	}
+}
+
+

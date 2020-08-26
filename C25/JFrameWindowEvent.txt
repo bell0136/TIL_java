@@ -1,0 +1,75 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+class WindowEventHandler implements WindowListener
+{
+	String frameInfo;
+	public WindowEventHandler(String info)
+	{
+		this.frameInfo = info;
+	}
+	public void windowActivated(WindowEvent e)
+	{
+		System.out.println(frameInfo + "windowActivated");
+	}
+	public void windowDeactivated(WindowEvent e)
+	{
+		System.out.println(frameInfo + "windowDeactivated");
+	}
+	public void windowClosed(WindowEvent e)
+	{
+		System.out.println(frameInfo + "windowclosed");
+	}
+	public void windowClosing(WindowEvent e)
+	{
+		System.out.println(frameInfo + "windowClosing");
+	}
+	public void windowDeiconified(WindowEvent e)
+	{
+		System.out.println(frameInfo + "wimdowDeiconified");
+	}
+	public void windowIconified(WindowEvent e)
+	{
+		System.out.println(frameInfo + "windowIconified");
+	}
+	public void windowOpened(WindowEvent e)
+	{
+		System.out.println(frameInfo + "windowOpened");
+	}
+	
+	
+}
+public class JFrameWindowEvent
+{	
+	public static void main(String[] args) 
+	{		
+		// TODO Auto-generated method stub
+		JFrame fra1 = new JFrame("Multi Layout Manager");
+		JFrame fra2 = new JFrame("Multi Layout Manager");
+		fra1.setBounds(120,120,400,100);
+		fra1.setLayout(new FlowLayout());	
+		fra2.setBounds(120,120,400,100);
+		fra2.setLayout(new FlowLayout());	
+
+		WindowListener windowHandler1 = new WindowEventHandler("frame one");
+		WindowListener windowHandler2 = new WindowEventHandler("frame two");
+		JButton but1 = new JButton("ONE");
+		fra1.addWindowListener(windowHandler1);
+		fra1.add(but1);
+		
+		JButton but2 = new JButton("TWO");
+		fra2.addWindowListener(windowHandler2);
+		fra2.add(but2);
+		
+		but1.setEnabled(true);
+		but2.setEnabled(false);
+
+		fra1.setVisible(true);
+		fra2.setVisible(true);
+
+				
+	}
+}
+
+
